@@ -1,11 +1,10 @@
 <template>
-    <div class="layout">
+    <div class="layout min-h-screen">
         <site-seo />
         <site-header />
         <main>
             <slot />
         </main>
-        <!-- <site-footer /> -->
     </div>
 </template>
 

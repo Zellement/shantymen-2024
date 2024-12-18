@@ -7,13 +7,13 @@ type EnvType = 'published' | 'draft'
 
 interface State {
     currentStory: AllTypes | null
-    globalOptions: MetaGlobalOptionsStoryblok | null
+    globalOptions: DataGlobalOptionsStoryblok | null
     locations: TemplateLocationStoryblok[] | null
     newsStories: TemplateNewsStoryblok[] | null
     recentNewsStories: TemplateNewsStoryblok[] | null
     totalNewsStories: number | null
-    reviews: DataSingleReviewStoryblok[] | null
     postsPerPage: number
+    allGigs: any
     // Booleans
     dataLoaded: boolean
     dataIsLoading: boolean
@@ -39,11 +39,11 @@ export const useStoryblokStore = defineStore('storyblok', {
         newsStories: null,
         recentNewsStories: null,
         totalNewsStories: null,
-        reviews: null,
         dataLoaded: false,
         dataIsLoading: false,
         firstLoad: true,
-        postsPerPage: 6
+        postsPerPage: 6,
+        allGigs: null
     }),
     getters: {
         getTotalNewsPages(state): number {
@@ -55,12 +55,6 @@ export const useStoryblokStore = defineStore('storyblok', {
         },
         getCurrentStory(state): AllTypes | null {
             return state.currentStory
-        },
-        getCurrentStoryContent(state): AllTypes | null {
-            return state.currentStory?.content
-        },
-        getGlobalOptionsContent(state): MetaGlobalOptionsStoryblok | null {
-            return state.globalOptions?.content
         },
         getCurrentStorySeoMetaTags(state): MetaTags | null {
             return {
@@ -142,61 +136,75 @@ export const useStoryblokStore = defineStore('storyblok', {
             }
         },
 
-        async fetchLocations(): Promise<void> {
+        async fetchGigs(): Promise<void> {
             try {
                 const response = await this.fetchStoryblokData(`cdn/stories/`, {
-                    content_type: 'templateLocation'
+                    content_type: 'dataGig',
+                    per_page: 100,
+                    sort_by: 'content.date:desc'
                 })
-                this.locations = response.data?.stories
+                const gigs = response.data?.stories || []
+                const today = new Date()
+                const allGigs: {
+                    future: { year: number; gigs: any[] }[]
+                    past: { year: number; gigs: any[] }[]
+                } = {
+                    future: [],
+                    past: []
+                }
+
+                const gigsByYear: {
+                    future: { [key: number]: any[] }
+                    past: { [key: number]: any[] }
+                } = {
+                    future: {},
+                    past: {}
+                }
+
+                gigs.forEach((gig: DataGigStoryblok) => {
+                    const gigDate = new Date(gig.content.date)
+                    const year = gigDate.getFullYear()
+                    const category = gigDate >= today ? 'future' : 'past'
+
+                    if (!gigsByYear[category][year]) {
+                        gigsByYear[category][year] = []
+                    }
+
+                    gigsByYear[category][year].push({
+                        name: gig.name,
+                        date: new Date(gig.content.date),
+                        locationInfo: gig.content.locationInfo,
+                        description: gig.content.description,
+                        sessions: gig.content.sessions,
+                        sessionLength: gig.content.sessionLength,
+                        moreInfoLink: gig.content.moreInfoLink,
+                        id: gig.id
+                    })
+                })
+
+                // Convert the gigsByYear object to sorted arrays
+                allGigs.future = Object.keys(gigsByYear.future)
+                    .sort((a, b) => parseInt(b) - parseInt(a))
+                    .map((year) => ({
+                        year: parseInt(year),
+                        gigs: gigsByYear.future[parseInt(year)]
+                    }))
+
+                allGigs.past = Object.keys(gigsByYear.past)
+                    .sort((a, b) => parseInt(b) - parseInt(a))
+                    .map((year) => ({
+                        year: parseInt(year),
+                        gigs: gigsByYear.past[parseInt(year)]
+                    }))
+
+                this.allGigs = allGigs
             } catch (error) {
                 throw error
             }
         },
-
-        async fetchNews(page?: number): Promise<void> {
-            try {
-                const response = await this.fetchStoryblokData(`cdn/stories/`, {
-                    content_type: 'templateNews',
-                    per_page: this.postsPerPage,
-                    page: page ?? 1,
-                    excluding_slugs: 'news/'
-                })
-                this.newsStories = response.data?.stories
-                this.totalNewsStories = response.total
-            } catch (error) {
-                throw error
-            }
-        },
-
-        async fetchRecentNews(): Promise<void> {
-            try {
-                const response = await this.fetchStoryblokData(`cdn/stories/`, {
-                    content_type: 'templateNews',
-                    per_page: 5
-                })
-                this.recentNewsStories = response.data?.stories
-            } catch (error) {
-                throw error
-            }
-        },
-
-        async fetchReviews(): Promise<void> {
-            try {
-                const response = await this.fetchStoryblokData(`cdn/stories/`, {
-                    content_type: 'dataSingleReview'
-                })
-                this.reviews = response.data?.stories
-            } catch (error) {
-                throw error
-            }
-        },
-
         // Fetches required data once in app.vue
         async fetchRequired(): Promise<void> {
             await this.fetchGlobalOptions()
-            await this.fetchLocations()
-            await this.fetchRecentNews()
-            await this.fetchReviews()
         }
     }
 })

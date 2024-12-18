@@ -66,14 +66,13 @@ declare global {
     type AssetStoryblok = StoryblokTypes.AssetStoryblok
     type MultiassetStoryblok = StoryblokTypes.MultiassetStoryblok
 
-    type MetaGlobalOptionsStoryblok = StoryblokTypes.MetaGlobalOptionsStoryblok
-
-    type DataSingleReviewStoryblok = StoryblokTypes.DataSingleReviewStoryblok
-    type DataSinglePrinciple = StoryblokTypes.DataSinglePrinciple
+    type DataGlobalOptionsStoryblok = StoryblokTypes.DataGlobalOptionsStoryblok
+    type DataGigStoryblok = StoryblokTypes.DataGigStoryblok
 
     type SectionTextBlockStoryblok = StoryblokTypes.SectionTextBlockStoryblok
     type SectionMediaGalleryStoryblok =
         StoryblokTypes.SectionMediaGalleryStoryblok
+    type SectionAllGigsStoryblok = StoryblokTypes.SectionAllGigsStoryblok
 
     type TemplatePageStoryblok = StoryblokTypes.TemplatePageStoryblok
     type TemplateLocationStoryblok = StoryblokTypes.TemplateLocationStoryblok
