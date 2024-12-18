@@ -1,5 +1,5 @@
 <template>
-    <div class="page flex min-h-screen">
+    <div class="page flex min-h-screen flex-col">
         <div class="grid grid-cols-12 xl:fixed xl:inset-0">
             <div
                 class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-full"
@@ -24,7 +24,7 @@
                 </h1>
                 <h2
                     v-if="currentStory.content.heroSecondary"
-                    class="text-xl text-yellow-200 xl:bg-blue-800 xl:px-3 xl:py-2 xl:text-yellow-400"
+                    class="text-xl text-yellow-400 xl:bg-blue-800 xl:px-3 xl:py-2"
                 >
                     {{ currentStory.content.heroSecondary }}
                 </h2>
