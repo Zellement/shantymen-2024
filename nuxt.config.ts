@@ -65,8 +65,8 @@ export default defineNuxtConfig({
     site: {
         trailingSlash: false,
         url: import.meta.env.WEBSITE_URL,
-        name: 'GCA (UK) Ltd',
-        description: 'Consulting civil and structural engineers',
+        name: 'Sheringham Shantymen',
+        description: 'Supporters of the RNLI and other charities.',
         defaultLocale: 'en' // not needed if you have @nuxtjs/i18n installed,
     },
 
@@ -126,7 +126,7 @@ export default defineNuxtConfig({
                 {
                     rel: 'icon',
                     type: 'image/x-icon',
-                    href: '/android-chrome-512x512.png'
+                    href: '/images/sheringham-shantymen-logo.webp'
                 }
                 // {
                 //     rel: 'preconnect',

@@ -34,7 +34,8 @@ export default {
     ],
     theme: {
         fontFamily: {
-            sans: ['Inter', ...defaultTheme.fontFamily.sans]
+            sans: ['Roboto Condensed', ...defaultTheme.fontFamily.sans],
+            serif: ['Playfair Display', ...defaultTheme.fontFamily.serif]
         },
         fontSize: {
             /* Step -1: 14.17px → 16.00px */
@@ -95,31 +96,17 @@ export default {
                 inherit: 'inherit',
                 // Generate shades from a base colour: https://www.tailwindshades.com/
                 blue: {
-                    DEFAULT: '#0053A0',
-                    50: '#F2F6FA',
-                    100: '#E6EEF6',
-                    200: '#BFD4E7',
-                    300: '#99BAD9',
-                    400: '#4D87BD',
-                    500: '#0053A0',
-                    600: '#004B90',
-                    700: '#003260',
-                    800: '#002548',
-                    900: '#001930'
-                },
-                green: {
-                    DEFAULT: '#6abe46',
-                    '50': '#FAFCF5',
-                    '100': '#F4FAEB',
-                    '200': '#DFF0C9',
-                    '300': '#CAE6AC',
-                    '400': '#9CD477',
-                    '500': '#6abe46',
-                    '600': '#5AAD39',
-                    '700': '#438F28',
-                    '800': '#2E7319',
-                    '900': '#1E570F',
-                    '950': '#103806'
+                    DEFAULT: '#172957',
+                    50: '#F3F4F7',
+                    100: '#E8EAEE',
+                    200: '#C5CAD5',
+                    300: '#A2A9BC',
+                    400: '#5D6989',
+                    500: '#172957',
+                    600: '#15254E',
+                    700: '#0E1934',
+                    800: '#0A1227',
+                    900: '#070C1A'
                 }
             },
             aspectRatio: {
