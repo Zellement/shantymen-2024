@@ -1,6 +1,6 @@
 <template>
-    <nav v-if="navItems" class="site-nav">
-        <ul class="my-auto lg:mr-4" :class="ulClasses">
+    <nav v-if="navItems" class="">
+        <ul class="" :class="ulClasses">
             <li>
                 <nuxt-link
                     to="/"

@@ -2,7 +2,7 @@
     <header
         role="banner"
         :class="[headerClasses, headerBgClasses]"
-        class="fixed left-0 right-0 top-0 z-50 w-full py-4 transition-[background-color,transform] lg:py-6"
+        class="fixed left-0 right-0 top-0 z-50 w-full py-4 transition-[background-color,transform] lg:h-[110px] lg:py-6 lg:pt-0"
     >
         <div class="grid-layout container container-px">
             <div
@@ -11,6 +11,7 @@
                 <site-brand class="relative z-40 mr-auto h-16" />
             </div>
             <div
+                v-if="!isDesktop"
                 class="col-span-3 col-start-10 row-start-1 flex items-center justify-center"
             >
                 <button
@@ -48,6 +49,11 @@
                     </Transition>
                 </button>
             </div>
+
+            <site-nav
+                v-if="isDesktop"
+                class="site-nav-desktop col-span-8 col-start-5 h-[110px]"
+            />
         </div>
 
         <Transition name="slide-up">
@@ -56,10 +62,7 @@
                 class="fixed inset-0 z-10 h-screen w-full overflow-y-scroll bg-blue-800/90 py-4 transition-transform duration-300"
             >
                 <div class="container container-px pt-24 xl:pb-20">
-                    <site-nav
-                        class="col-span-full"
-                        ul-classes="flex gap-2 flex-col "
-                    />
+                    <site-nav class="site-nav-mobile col-span-full" />
                 </div>
             </div>
         </Transition>
@@ -80,6 +83,7 @@ interface State {
 // States, stores and props
 -------------------------- */
 const uiStore = useUiStore()
+const viewport = useViewport()
 
 const state: State = reactive({
     showHeader: true,
@@ -96,6 +100,10 @@ const headerClasses: ComputedRef<string> = computed(() => {
 })
 const headerBgClasses: ComputedRef<string> = computed(() => {
     return uiStore.showMobileNav ? 'bg-blue text-white' : ' text-white'
+})
+
+const isDesktop: ComputedRef<boolean> = computed(() => {
+    return viewport.isGreaterOrEquals('lg')
 })
 
 /* --------------------------

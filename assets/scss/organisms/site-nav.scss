@@ -1,13 +1,27 @@
-.site-nav {
-    .router-link-active {
-        @apply border-yellow border-l-4 pl-4;
+.site-nav-mobile {
+    ul {
+        @apply flex flex-col gap-2;
     }
 
-    &__item {
+    a {
         @apply flex flex-col text-lg font-bold text-white transition-colors hover:text-green-500 xl:text-lg;
     }
 
-    &__sub-item {
-        @apply flex py-2 text-sm leading-tight text-white transition-colors hover:text-green-500 xl:text-base;
+    .router-link-active {
+        @apply border-yellow border-l-4 pl-4;
+    }
+}
+
+.site-nav-desktop {
+    @apply flex w-full justify-start;
+    ul {
+        @apply ml-auto inline-flex h-[110px] w-auto gap-1;
+    }
+    a {
+        @apply hover:border-yellow flex border-b-2 border-blue-900/80 bg-blue-900/80 px-3 pb-2 pt-16 font-serif transition-all hover:pt-12;
+    }
+
+    .router-link-active {
+        @apply border-white/20 pt-8 text-blue-400;
     }
 }
