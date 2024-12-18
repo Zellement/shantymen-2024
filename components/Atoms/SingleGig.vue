@@ -1,5 +1,5 @@
 <template>
-    <li class="flex flex-row items-center gap-4">
+    <li class="flex flex-row items-center justify-start gap-16">
         <span class="col-span-2 grid w-28 grid-cols-2">
             <span
                 :class="[
@@ -37,7 +37,7 @@
                 {{ getTime(gig.date) }}
             </span>
         </span>
-        <span class="flex w-full flex-col">
+        <span class="flex flex-col">
             <h4>{{ gig.name }}</h4>
             <p v-if="gig.locationInfo">{{ gig.locationInfo }}</p>
             <p v-if="gig.description">{{ gig.description }}</p>
@@ -48,6 +48,13 @@
                 >
             </p>
         </span>
+        <nuxt-link
+            v-if="gig.moreInfoLink"
+            class="btn"
+            :to="gig.moreInfoLink.cached_url ?? gig.moreInfoLink.url"
+        >
+            Learn more
+        </nuxt-link>
     </li>
 </template>
 
