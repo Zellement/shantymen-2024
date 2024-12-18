@@ -30,7 +30,7 @@
             <div
                 class="absolute bottom-0 z-10 w-full translate-y-full whitespace-pre-line p-4 text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:bg-transparent group-hover:opacity-100"
             >
-                <p class="text-lg font-bold group-hover:text-green">
+                <p class="group-hover:text-green text-lg font-bold">
                     {{ name }}
                 </p>
                 <div v-if="overview">

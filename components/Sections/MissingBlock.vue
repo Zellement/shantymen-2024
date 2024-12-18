@@ -1,8 +1,11 @@
 <template>
-    <div v-show="isDebugMode" class="bg-gray-100 py-16 lg:py-24">
+    <pre
+        v-show="isDebugMode"
+        class="overflow-x-scroll bg-gray-100 py-16 lg:py-24"
+    >
         <P> BLOCK IS MISSING </P>
         <pre>{{ content }}</pre>
-    </div>
+    </pre>
 </template>
 
 <script lang="ts" setup>

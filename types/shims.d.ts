@@ -71,17 +71,9 @@ declare global {
     type DataSingleReviewStoryblok = StoryblokTypes.DataSingleReviewStoryblok
     type DataSinglePrinciple = StoryblokTypes.DataSinglePrinciple
 
-    type SectionCardBlockStoryblok = StoryblokTypes.SectionCardBlockStoryblok
-    type SectionCardCarouselStoryblok =
-        StoryblokTypes.SectionCardCarouselStoryblok
-    type SectionReviewBlockStoryblok =
-        StoryblokTypes.SectionReviewBlockStoryblok
-    type SectionTextMediaStoryblok = StoryblokTypes.SectionTextMediaStoryblok
-    type SectionStandaloneLinkStoryblok =
-        StoryblokTypes.SectionStandaloneLinkStoryblok
-    type SectionPdfDownloadBlockStoryblok =
-        StoryblokTypes.SectionPdfDownloadBlockStoryblok
-    type SectionIconGridStoryblok = StoryblokTypes.SectionIconGridStoryblok
+    type SectionTextBlockStoryblok = StoryblokTypes.SectionTextBlockStoryblok
+    type SectionMediaGalleryStoryblok =
+        StoryblokTypes.SectionMediaGalleryStoryblok
 
     type TemplatePageStoryblok = StoryblokTypes.TemplatePageStoryblok
     type TemplateLocationStoryblok = StoryblokTypes.TemplateLocationStoryblok

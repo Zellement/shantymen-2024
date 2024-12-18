@@ -52,6 +52,7 @@
         "@nuxt/image": "^1.8.1",
         "@pinia/nuxt": "^0.7.0",
         "@storyblok/js": "^3.1.7",
+        "@storyblok/richtext": "^3.0.2",
         "embla-carousel-vue": "^8.3.1",
         "esbuild": "^0.24.0",
         "pinia": "^2.2.6",

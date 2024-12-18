@@ -5,7 +5,7 @@
       "display_name": "Gig",
       "description": "A single gig.",
       "created_at": "2024-12-18T15:18:48.435Z",
-      "updated_at": "2024-12-18T15:23:30.774Z",
+      "updated_at": "2024-12-18T16:19:03.900Z",
       "id": 6708116,
       "schema": {
         "locationInfo": {
@@ -38,6 +38,12 @@
           "description": "In minutes.",
           "required": false,
           "id": "5CnjDhdERsOMpMLlepqMEQ"
+        },
+        "moreInfoLink": {
+          "type": "multilink",
+          "pos": 5,
+          "id": "bd8N31sgSBCf_JN95nqUkw",
+          "description": "A link off-site for more information, tickets etc."
         }
       },
       "image": null,
@@ -157,11 +163,11 @@
       "component_group_name": "Body"
     },
     {
-      "name": "sectionText",
-      "display_name": "Text",
+      "name": "sectionTextBlock",
+      "display_name": "Text Block",
       "description": "A block of text.",
       "created_at": "2024-12-18T15:14:59.135Z",
-      "updated_at": "2024-12-18T15:15:41.143Z",
+      "updated_at": "2024-12-18T20:04:12.299Z",
       "id": 6708053,
       "schema": {
         "text": {
@@ -184,7 +190,7 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "Text",
+      "real_name": "Text Block",
       "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
       "color": "#f5a928",
       "icon": "block-text-l",
@@ -198,15 +204,9 @@
       "display_name": "Homepage",
       "description": "Template for the homepage.",
       "created_at": "2024-12-18T15:54:55.058Z",
-      "updated_at": "2024-12-18T15:56:36.997Z",
+      "updated_at": "2024-12-18T18:10:29.636Z",
       "id": 6708258,
       "schema": {
-        "heroPrimary": {
-          "type": "text",
-          "pos": 0,
-          "id": "z8ajePfcRty9qDnHUnPZxw",
-          "required": true
-        },
         "heroSecondary": {
           "type": "text",
           "pos": 1,

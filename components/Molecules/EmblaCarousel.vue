@@ -11,7 +11,7 @@
             <!-- Buttons / nav -->
             <div
                 v-if="showButtons"
-                class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1"
+                class="absolute bottom-4 left-4 z-10 flex gap-1"
             >
                 <button
                     v-for="button in buttonActions"
@@ -54,13 +54,13 @@
 
         <!-- Dots -->
         <div v-if="displayDots">
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <div class="absolute bottom-7 left-40 -translate-x-1/2">
                 <div ref="emblaRefDots">
                     <div class="flex gap-2">
                         <div
                             v-for="(slide, i) in media"
                             :key="`dot-${slide.id}`"
-                            class="size-3 cursor-pointer rounded-full border border-white"
+                            class="size-4 cursor-pointer rounded-full border border-white"
                             :class="isDotActiveClass(Number(i))"
                             @click="scrollTo(Number(i))"
                         ></div>

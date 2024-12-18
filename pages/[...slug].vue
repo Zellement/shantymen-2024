@@ -18,7 +18,7 @@
             class="container container-px relative -mb-6 w-full xl:translate-y-25vh"
         >
             <div
-                class="flex max-w-screen-md -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:bg-transparent xl:text-white"
+                class="flex max-w-screen-md -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:bg-transparent xl:p-0 xl:text-white"
             >
                 <h1 class="text-3xl xl:bg-blue-800 xl:px-3 xl:py-2">
                     {{ currentStory.content.heroPrimary }}
@@ -33,7 +33,21 @@
         </div>
         <div class="relative grid grid-cols-12">
             <div
-                class="col-span-full bg-white p-8 xl:col-span-8 xl:col-start-5 xl:translate-y-25vh"
+                class="sticky top-0 col-span-full pt-[25vh] text-white xl:col-span-4 xl:col-start-1"
+            >
+                <div class="sticky top-0 p-8 text-right text-sm text-blue-400">
+                    <ul>
+                        <li>
+                            <span class="font-serif text-base"
+                                >Last updated:</span
+                            ><br />
+                            {{ lastUpdated }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="col-span-full bg-white p-8 lg:p-14 xl:col-span-8 xl:col-start-5 xl:translate-y-25vh xl:pr-0"
             >
                 <block-loop
                     :key="`${id}__${currentStory?.id}`"
@@ -51,5 +65,14 @@ const id = useId()
 
 const currentStory = computed(() => {
     return storyblokStore.currentStory
+})
+
+const lastUpdated: ComputedRef<string> = computed(() => {
+    return new Date(currentStory.value.updated_at).toLocaleDateString('en-GB', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
 })
 </script>

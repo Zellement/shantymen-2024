@@ -18,7 +18,7 @@
         @apply ml-auto inline-flex h-[110px] w-auto gap-1;
     }
     a {
-        @apply hover:border-yellow flex border-b-2 border-blue-900/80 bg-blue-900/80 px-3 pb-2 pt-16 font-serif transition-all hover:pt-12;
+        @apply hover:border-yellow flex border-b-2 border-blue-600 bg-blue-600 px-3 pb-2 pt-16 font-serif transition-all hover:pt-12;
     }
 
     .router-link-active {

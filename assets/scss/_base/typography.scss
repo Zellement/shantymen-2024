@@ -59,7 +59,7 @@ h6 {
 /**
  * Rich Text / Body Copy
  */
-.content > div {
+.content {
     @apply flex flex-col space-y-4;
 
     @for $i from 1 through 6 {
@@ -69,11 +69,11 @@ h6 {
     }
 
     h2 {
-        @apply text-xl text-blue-500;
+        @apply text-lg text-blue-500;
     }
 
     h3 {
-        @apply text-lg text-green-500;
+        @apply text-md text-green-500;
     }
 
     h4 {
@@ -113,5 +113,9 @@ h6 {
 
     a {
         @apply text-green-500 underline transition-colors hover:text-green-900;
+    }
+
+    blockquote {
+        @apply border-l-4 border-slate-300 bg-slate-200 p-4 font-serif text-md;
     }
 }
