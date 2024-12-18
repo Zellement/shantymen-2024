@@ -48,13 +48,13 @@
                 >
             </p>
         </span>
-        <nuxt-link
+        <single-link
             v-if="gig.moreInfoLink"
             class="btn"
+            text="Learn more"
+            target="_blank"
             :to="gig.moreInfoLink.cached_url ?? gig.moreInfoLink.url"
-        >
-            Learn more
-        </nuxt-link>
+        />
     </li>
 </template>
 
