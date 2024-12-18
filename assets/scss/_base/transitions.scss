@@ -1,0 +1,55 @@
+/* --------------------------------------------
+VARS AND RE-USABLE CLASSES
+-------------------------------------------- */
+
+$easing: cubic-bezier(0.4, 0, 0.16, 1);
+
+@mixin animate-movement {
+    transition:
+            scale 700ms $easing,
+            opacity 700ms $easing,
+            transform 700ms $easing;
+}
+
+/* --------------------------------------------
+PAGE
+-------------------------------------------- */
+
+// Page transitions
+
+.page.page-leave-active,
+.page.page-enter-active {
+    @apply opacity-0;
+    @include animate-movement;
+}
+
+.page.page-enter-to {
+    @apply opacity-100;
+    @include animate-movement;
+}
+
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}

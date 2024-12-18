@@ -1,0 +1,116 @@
+/**
+ * ----------------------
+ * Base - Typography
+ * ----------------------
+ */
+
+.h1 {
+    @apply text-3xl;
+}
+
+.h2 {
+    @apply text-2xl;
+}
+
+.h3 {
+    @apply text-xl;
+}
+
+.h4 {
+    @apply text-lg;
+}
+
+.h5 {
+    @apply text-base;
+}
+
+em {
+    @apply italic;
+}
+
+strong {
+    @apply font-bold;
+}
+
+/**
+ * Outline styles
+ */
+a,
+button,
+[tabindex='0'] {
+    &:focus {
+        @apply outline-dashed outline-2 outline-current;
+    }
+
+    &:not(:focus-visible) {
+        @apply outline-none;
+    }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold;
+}
+
+/**
+ * Rich Text / Body Copy
+ */
+.content > div {
+    @apply flex flex-col space-y-4;
+
+    @for $i from 1 through 6 {
+        h#{$i} {
+            @apply font-bold;
+        }
+    }
+
+    h2 {
+        @apply text-xl text-blue-500;
+    }
+
+    h3 {
+        @apply text-lg text-green-500;
+    }
+
+    h4 {
+        @apply text-md text-blue-500;
+    }
+
+    h5 {
+        @apply text-base text-green-500;
+    }
+
+    p strong {
+        @apply font-bold;
+    }
+
+    ul,
+    ol,
+    dl {
+        @apply mb-4 flex flex-col gap-4 pl-4;
+
+        li,
+        dd {
+            @apply relative ml-4 list-none after:absolute after:left-0 after:top-3.5 after:size-2 after:-translate-x-6 after:rounded-full after:bg-blue after:content-[''];
+
+            > ul,
+            > dl,
+            > ol {
+                @apply my-4;
+            }
+        }
+    }
+
+    ol {
+        li {
+            @apply list-decimal;
+        }
+    }
+
+    a {
+        @apply text-green-500 underline transition-colors hover:text-green-900;
+    }
+}

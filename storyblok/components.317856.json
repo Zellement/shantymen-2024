@@ -1,0 +1,313 @@
+{
+  "components": [
+    {
+      "name": "dataGig",
+      "display_name": "Gig",
+      "description": "A single gig.",
+      "created_at": "2024-12-18T15:18:48.435Z",
+      "updated_at": "2024-12-18T15:23:30.774Z",
+      "id": 6708116,
+      "schema": {
+        "locationInfo": {
+          "type": "textarea",
+          "pos": 0,
+          "description": "Extra information about the location.",
+          "id": "_dLrRFb-TUSh4pD9QTNfaA"
+        },
+        "date": {
+          "type": "datetime",
+          "pos": 1,
+          "id": "Uv65EBzBQtiUzCg8bTxhwg",
+          "description": "The date and time of the gig. If the gig is over multiple days, just put the first day here and add more info in the description box."
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 2,
+          "id": "ijlsMKfiR--h3ZgxSpRA0g",
+          "description": "Any more information about the gig."
+        },
+        "sessions": {
+          "type": "number",
+          "pos": 3,
+          "id": "q2mn8jzaRsyOXA06obt_sw",
+          "description": "How many sessions?"
+        },
+        "sessionLength": {
+          "type": "number",
+          "pos": 4,
+          "description": "In minutes.",
+          "required": false,
+          "id": "5CnjDhdERsOMpMLlepqMEQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Gig",
+      "component_group_uuid": "all",
+      "color": "#374dc3",
+      "icon": "block-sticker",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "dataGlobalOptions",
+      "display_name": "Global Options",
+      "description": "General site-wide options.",
+      "created_at": "2024-12-18T16:00:46.839Z",
+      "updated_at": "2024-12-18T16:01:54.292Z",
+      "id": 6708297,
+      "schema": {
+        "navigation": {
+          "type": "options",
+          "pos": 0,
+          "is_reference_type": true,
+          "source": "internal_stories",
+          "entry_appearance": "card",
+          "allow_advanced_search": true,
+          "filter_content_type": [
+            "templatePage"
+          ],
+          "id": "Lva37RXUTGunMZUWXfLFOQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Global Options",
+      "component_group_uuid": "all",
+      "color": "#374dc3",
+      "icon": "block-add",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "sectionAllGigs",
+      "display_name": "All Gigs",
+      "description": "This will list all gigs, both upcoming & past.",
+      "created_at": "2024-12-18T15:59:48.071Z",
+      "updated_at": "2024-12-18T16:00:08.227Z",
+      "id": 6708295,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "All Gigs",
+      "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "color": "#f5a928",
+      "icon": "block-block",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Body"
+    },
+    {
+      "name": "sectionMediaGallery",
+      "display_name": "Media Gallery",
+      "description": "A swipable media gallery.",
+      "created_at": "2024-12-18T15:16:15.750Z",
+      "updated_at": "2024-12-18T15:52:28.744Z",
+      "id": 6708114,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "id": "WvCtOM_CQrmQuDchPOqDhA"
+        },
+        "media": {
+          "type": "multiasset",
+          "pos": 1,
+          "filetypes": [
+            "images"
+          ],
+          "id": "v_ufrPorSIidbaO9e4nAOQ",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Media Gallery",
+      "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "color": "#f5a928",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Body"
+    },
+    {
+      "name": "sectionText",
+      "display_name": "Text",
+      "description": "A block of text.",
+      "created_at": "2024-12-18T15:14:59.135Z",
+      "updated_at": "2024-12-18T15:15:41.143Z",
+      "id": 6708053,
+      "schema": {
+        "text": {
+          "type": "richtext",
+          "pos": 0,
+          "customize_toolbar": true,
+          "toolbar": [
+            "h2",
+            "h3",
+            "quote",
+            "list"
+          ],
+          "id": "wv0GWhBjQPC4hFIL641CQw"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Text",
+      "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "color": "#f5a928",
+      "icon": "block-text-l",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Body"
+    },
+    {
+      "name": "templateHomepage",
+      "display_name": "Homepage",
+      "description": "Template for the homepage.",
+      "created_at": "2024-12-18T15:54:55.058Z",
+      "updated_at": "2024-12-18T15:56:36.997Z",
+      "id": 6708258,
+      "schema": {
+        "heroPrimary": {
+          "type": "text",
+          "pos": 0,
+          "id": "z8ajePfcRty9qDnHUnPZxw",
+          "required": true
+        },
+        "heroSecondary": {
+          "type": "text",
+          "pos": 1,
+          "id": "Ff20bQszRgOUIUTWJlPjhA",
+          "required": true
+        },
+        "linkText": {
+          "type": "text",
+          "pos": 2,
+          "id": "RtBg020TTX2BPB4FkHHPww"
+        },
+        "linkUrl": {
+          "type": "multilink",
+          "pos": 3,
+          "id": "zfMRtpwWTAyHLNQaGABozQ"
+        },
+        "heroMedia": {
+          "type": "asset",
+          "pos": 4,
+          "filetypes": [
+            "images"
+          ],
+          "required": true,
+          "id": "bdFiW52WRl6jDia5KLV_mA"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Homepage",
+      "component_group_uuid": "all",
+      "color": "#ef6252",
+      "icon": "block-image",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "templatePage",
+      "display_name": "Page",
+      "description": null,
+      "created_at": "2024-12-18T15:11:57.961Z",
+      "updated_at": "2024-12-18T15:31:40.152Z",
+      "id": 6708049,
+      "schema": {
+        "heroPrimary": {
+          "type": "text",
+          "pos": 0,
+          "id": "PXY7ML0ERwaTrQ8MjVDQ-A"
+        },
+        "heroSecondary": {
+          "type": "text",
+          "pos": 1,
+          "id": "G16cfyKiQleooyL672paTQ"
+        },
+        "heroMedia": {
+          "type": "asset",
+          "pos": 2,
+          "id": "6Ib9T8BFRKu8oPz1uG6XXQ"
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 3,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "8a10468e-4e11-483c-be67-d88224194787"
+          ],
+          "id": "RiVro9uvTlWqFnyE4NeMJw"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Page",
+      "component_group_uuid": "all",
+      "color": "#ef6252",
+      "icon": "block-text-img-l",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    }
+  ],
+  "component_groups": [
+    {
+      "name": "Body",
+      "id": 462519,
+      "uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "parent_id": null,
+      "parent_uuid": null
+    }
+  ]
+}

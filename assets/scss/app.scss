@@ -1,0 +1,18 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+// Base
+@use '_base/main';
+@use '_base/typography';
+@use '_base/transitions';
+@use '_base/forms';
+
+// Atoms
+@use 'atoms/buttons';
+
+// Molecules
+@use 'molecules/embla-carousel';
+
+// Organisms
+@use 'organisms/site-nav';
