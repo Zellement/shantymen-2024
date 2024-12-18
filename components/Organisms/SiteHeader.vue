@@ -6,29 +6,45 @@
     >
         <div class="grid-layout container container-px">
             <div
-                class="relative col-span-4 col-start-5 flex w-full items-center justify-between"
+                class="relative col-span-4 col-start-1 flex w-full items-center justify-between"
             >
-                <site-brand class="relative z-40 mx-auto h-10" />
+                <site-brand class="relative z-40 mr-auto h-16" />
             </div>
             <div
-                class="col-span-3 col-start-1 row-start-1 flex items-center justify-center"
+                class="col-span-3 col-start-10 row-start-1 flex items-center justify-center"
             >
                 <button
-                    class="relative z-50 mr-auto flex h-8 w-full"
+                    class="relative z-50 ml-auto flex h-8 w-full text-right"
                     aria-label="Open navigation"
                     @click="uiStore.toggleBoolean('showMobileNav')"
                 >
                     <Transition name="slide-up">
                         <span
                             v-if="!uiStore.showMobileNav"
-                            class="absolute left-0 top-0 border-b-2 border-green-500 transition-colors hover:text-green"
-                            >Menu</span
+                            class="absolute right-0 top-0 flex items-center gap-2"
                         >
+                            <span class="transition-colors hover:text-green"
+                                >Menu</span
+                            >
+
+                            <Icon
+                                class="ml-auto mt-0.5 size-6"
+                                name="ic:baseline-menu"
+                            />
+                        </span>
                         <span
                             v-else-if="uiStore.showMobileNav"
-                            class="absolute left-0 top-0 border-b-2 border-green-500 transition-colors hover:text-green"
-                            >Close</span
+                            class="absolute right-0 top-0 flex items-center gap-2"
                         >
+                            <span class="transition-colors hover:text-green"
+                                >Close</span
+                            >
+
+                            <Icon
+                                class="ml-auto mt-0.5 size-6"
+                                name="material-symbols-light:cancel-outline"
+                            />
+                        </span>
                     </Transition>
                 </button>
             </div>
@@ -37,7 +53,7 @@
         <Transition name="slide-up">
             <div
                 v-if="uiStore.showMobileNav"
-                class="fixed inset-0 z-10 h-screen w-full overflow-y-scroll bg-blue py-4 transition-transform duration-300"
+                class="fixed inset-0 z-10 h-screen w-full overflow-y-scroll bg-blue-800/90 py-4 transition-transform duration-300"
             >
                 <div class="container container-px pt-24 xl:pb-20">
                     <site-nav
@@ -79,7 +95,7 @@ const headerClasses: ComputedRef<string> = computed(() => {
     return state.showHeader ? 'translate-y-0' : '-translate-y-full'
 })
 const headerBgClasses: ComputedRef<string> = computed(() => {
-    return uiStore.showMobileNav ? 'bg-blue text-white' : 'bg-white text-blue'
+    return uiStore.showMobileNav ? 'bg-blue text-white' : ' text-white'
 })
 
 /* --------------------------

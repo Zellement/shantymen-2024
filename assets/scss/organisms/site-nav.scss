@@ -1,15 +1,13 @@
 .site-nav {
-
-
     .router-link-active {
-        @apply border-l-4 border-green-500 pl-4;
+        @apply border-yellow border-l-4 pl-4;
     }
 
     &__item {
-        @apply text-white transition-colors hover:text-green-500 xl:text-lg flex flex-col font-bold;
+        @apply flex flex-col text-lg font-bold text-white transition-colors hover:text-green-500 xl:text-lg;
     }
 
     &__sub-item {
-        @apply text-white transition-colors hover:text-green-500 text-sm xl:text-base leading-tight py-2 flex;
+        @apply flex py-2 text-sm leading-tight text-white transition-colors hover:text-green-500 xl:text-base;
     }
 }
