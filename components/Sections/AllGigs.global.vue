@@ -1,6 +1,6 @@
 <template>
-    <section v-if="storyblokStore?.allGigs" class="">
-        <template
+    <section v-if="storyblokStore?.allGigs" class="flex flex-col gap-32">
+        <div
             v-if="
                 storyblokStore?.allGigs?.future &&
                 storyblokStore?.allGigs?.future.length > 0
@@ -20,19 +20,19 @@
                     />
                 </ul>
             </div>
-        </template>
-        <template
+        </div>
+        <div
             v-if="
                 storyblokStore?.allGigs?.past &&
                 storyblokStore?.allGigs?.past.length > 0
             "
         >
-            <h2 class="text-2xl">Past Gigs</h2>
+            <h2 class="text-xl">Past Gigs</h2>
             <div
                 v-for="yearGroup in storyblokStore.allGigs.past"
                 :key="yearGroup.year"
             >
-                <h3 class="text-xl">{{ yearGroup.year }}</h3>
+                <h3 class="text-lg">{{ yearGroup.year }}</h3>
                 <ul class="flex flex-col gap-12">
                     <single-gig
                         v-for="gig in yearGroup.gigs"
@@ -41,7 +41,7 @@
                     />
                 </ul>
             </div>
-        </template>
+        </div>
     </section>
 </template>
 
