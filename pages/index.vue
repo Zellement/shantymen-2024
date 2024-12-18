@@ -1,24 +1,47 @@
 <template>
-    <div class="page">
+    <div class="page flex min-h-screen">
         <div class="grid grid-cols-12 xl:fixed xl:inset-0">
-            <div class="col-span-full xl:col-span-8 xl:col-start-5 xl:h-full">
+            <div
+                class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-full"
+            >
                 <single-picture
                     :img-data="{
                         url: currentStory.content.heroMedia.filename,
                         alt: currentStory.content.heroMedia.alt
                     }"
-                    class="aspect-square xl:aspect-square xl:h-full xl:w-full xl:object-cover"
+                    class="aspect-square lg:aspect-landscape xl:aspect-auto xl:h-full xl:w-full xl:object-cover"
                     sizes="500px lg:1200px xl:1600px"
                 />
             </div>
         </div>
 
-        <div class="container container-px relative text-white">
-            <div class="-translate-y-10 bg-blue-800 p-4">
-                <h1 class="text-3xl">The Sheringham Shantymen</h1>
-                <h2 class="text-xl">
+        <div class="container container-px relative w-full xl:mt-auto">
+            <div
+                class="flex -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:bg-transparent xl:text-white"
+            >
+                <h1 class="text-3xl xl:bg-blue-800 xl:px-3 xl:py-2">
+                    The Sheringham Shantymen
+                </h1>
+                <h2
+                    v-if="currentStory.content.heroSecondary"
+                    class="text-xl text-yellow-200 xl:bg-blue-800 xl:px-3 xl:py-2 xl:text-yellow-400"
+                >
                     {{ currentStory.content.heroSecondary }}
                 </h2>
+                <single-link
+                    v-if="
+                        currentStory.content.linkUrl.cached_url ||
+                        currentStory.content.linkUrl.url
+                    "
+                    :text="currentStory.content.linkText"
+                    class="mt-6 xl:text-yellow-200"
+                    :to="
+                        currentStory.content.linkUrl.cached_url ||
+                        currentStory.content.linkUrl.url
+                    "
+                >
+                    {{ currentStory.content.linkText }}
+                </single-link>
             </div>
         </div>
     </div>

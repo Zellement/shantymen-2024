@@ -5,7 +5,7 @@
  */
 
 html {
-    @apply min-h-screen scroll-smooth bg-gradient-to-r from-blue-800 to-blue-500;
+    @apply min-h-screen scroll-smooth bg-gradient-to-r from-blue-800 to-blue-500 text-blue-800;
 }
 
 body {
@@ -20,14 +20,14 @@ picture img {
     @apply h-full w-full object-cover;
 }
 
-.page {
-    // ::before to push content down to overwrite fixed header
-    &::before {
-        content: '';
+// .page {
+//     // ::before to push content down to overwrite fixed header
+//     &::before {
+//         content: '';
 
-        @apply block h-[96px] w-full lg:hidden;
-    }
-}
+//         @apply block h-[96px] w-full lg:hidden;
+//     }
+// }
 
 .container {
     @apply mx-auto max-w-screen-max;

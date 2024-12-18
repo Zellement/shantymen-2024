@@ -2,7 +2,7 @@
     <header
         role="banner"
         :class="[headerClasses, headerBgClasses]"
-        class="fixed left-0 right-0 top-0 z-50 w-full bg-gradient-to-r from-blue-800 to-blue-500 py-4 transition-[background-color,transform] lg:h-[110px] lg:py-6 lg:pt-0"
+        class="fixed left-0 right-0 top-0 z-50 w-full py-4 transition-[background-color,transform] lg:h-[110px] lg:py-6 lg:pt-0"
     >
         <div class="grid-layout container container-px">
             <div

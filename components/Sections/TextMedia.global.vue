@@ -51,10 +51,10 @@
                         :content="bodyContent"
                     />
                     <!-- Single link -->
-                    <single-link
+                    <!-- <single-link
                         v-if="bodyContent.component === 'atomSingleLink'"
                         :content="bodyContent"
-                    />
+                    /> -->
 
                     <!-- Media Block -->
                     <div v-if="bodyContent.component === 'atomMediaBlock'">
