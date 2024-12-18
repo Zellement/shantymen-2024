@@ -17,11 +17,14 @@
     ul {
         @apply ml-auto inline-flex h-[110px] w-auto gap-1;
     }
+    li {
+        @apply flex;
+    }
     a {
         @apply hover:border-yellow flex border-b-2 border-blue-600 bg-blue-600 px-3 pb-2 pt-16 font-serif transition-all hover:pt-12;
     }
 
     .router-link-active {
-        @apply border-white/20 pt-8 text-blue-400;
+        @apply -translate-y-8 border-white/20 text-blue-400;
     }
 }

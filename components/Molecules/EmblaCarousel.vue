@@ -17,7 +17,7 @@
                     v-for="button in buttonActions"
                     :key="button.ariaLabel"
                     :aria-label="button.ariaLabel"
-                    class="size-10 bg-blue-500 text-white transition-colors hover:bg-green-500"
+                    class="size-10 bg-blue-500 text-white transition-colors hover:bg-yellow-500"
                     @click="button.onClick"
                 >
                     <Icon

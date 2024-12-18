@@ -18,7 +18,7 @@
                     :class="[
                         'embla__slide embla__slide--90 relative',
                         'flex h-full w-full xl:max-h-[70vh]',
-                        '2xl:embla__slide--66'
+                        '2xl:embla__slide--80'
                     ]"
                 >
                     <single-picture
