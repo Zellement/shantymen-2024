@@ -12,7 +12,7 @@
                     :key="location.uuid"
                     class="col-span-full flex flex-col items-center text-center md:col-span-4"
                 >
-                    <h3 class="font-bold text-green">
+                    <h3 class="text-green font-bold">
                         GCA {{ location.name }}
                     </h3>
                     <a
@@ -33,7 +33,7 @@
             <div
                 class="col-span-full flex flex-col items-center justify-center gap-4 bg-black py-8"
             >
-                <social-links class="flex gap-4 text-green" />
+                <social-links class="text-green flex gap-4" />
                 <div class="flex flex-row items-center gap-4">
                     <p class="flex flex-row gap-1 text-sm">
                         Copyright <span>&copy;</span>

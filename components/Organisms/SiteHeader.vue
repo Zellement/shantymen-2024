@@ -2,13 +2,13 @@
     <header
         role="banner"
         :class="[headerClasses, headerBgClasses]"
-        class="fixed left-0 right-0 top-0 z-50 w-full py-4 transition-[background-color,transform] lg:h-[110px] lg:py-6 lg:pt-0"
+        class="fixed left-0 right-0 top-0 z-50 w-full bg-gradient-to-r from-blue-800 to-blue-500 py-4 transition-[background-color,transform] lg:h-[110px] lg:py-6 lg:pt-0"
     >
         <div class="grid-layout container container-px">
             <div
-                class="relative col-span-4 col-start-1 flex w-full items-center justify-between"
+                class="relative col-span-4 col-start-1 flex w-full items-center justify-between lg:col-span-5"
             >
-                <site-brand class="relative z-40 mr-auto h-16" />
+                <site-brand class="relative z-40 mr-auto h-16 lg:h-24" />
             </div>
             <div
                 v-if="!isDesktop"
@@ -24,9 +24,7 @@
                             v-if="!uiStore.showMobileNav"
                             class="absolute right-0 top-0 flex items-center gap-2"
                         >
-                            <span class="transition-colors hover:text-green"
-                                >Menu</span
-                            >
+                            <span class="">Menu</span>
 
                             <Icon
                                 class="ml-auto mt-0.5 size-6"
@@ -37,9 +35,7 @@
                             v-else-if="uiStore.showMobileNav"
                             class="absolute right-0 top-0 flex items-center gap-2"
                         >
-                            <span class="transition-colors hover:text-green"
-                                >Close</span
-                            >
+                            <span class="">Close</span>
 
                             <Icon
                                 class="ml-auto mt-0.5 size-6"
@@ -52,7 +48,7 @@
 
             <site-nav
                 v-if="isDesktop"
-                class="site-nav-desktop col-span-8 col-start-5 h-[110px]"
+                class="site-nav-desktop col-span-7 col-start-6 h-[110px]"
             />
         </div>
 

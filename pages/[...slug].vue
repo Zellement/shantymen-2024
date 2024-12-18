@@ -1,7 +1,6 @@
 <template>
     <div class="page">
         <hero-page v-if="showHero" />
-        <site-breadcrumbs />
         <block-loop
             :key="`${id}__${currentStory?.id}`"
             class="-mt-8"

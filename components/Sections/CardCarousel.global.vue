@@ -31,7 +31,7 @@
                             sizes="600px"
                         />
                         <div
-                            class="absolute inset-0 flex bg-black/60 p-8 text-center text-md text-white transition-colors group-hover:bg-blue-500/80 group-hover:text-green"
+                            class="group-hover:text-green absolute inset-0 flex bg-black/60 p-8 text-center text-md text-white transition-colors group-hover:bg-blue-500/80"
                         >
                             <h3 class="m-auto">{{ slide.name }}</h3>
                         </div>

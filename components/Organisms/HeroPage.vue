@@ -1,8 +1,5 @@
 <template>
-    <section
-        v-if="hasSlides"
-        :class="['relative border-l-[20px] border-green bg-gray-50']"
-    >
+    <section v-if="hasSlides" :class="['relative']">
         <embla-carousel
             :key="`embla-carousel-hero-${heroSlides.length}`"
             ref="carouselRef"
