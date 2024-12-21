@@ -28,20 +28,11 @@
                 >
                     {{ currentStory.content.heroSecondary }}
                 </h2>
-                <single-link
-                    v-if="
-                        currentStory.content.linkUrl.cached_url ||
-                        currentStory.content.linkUrl.url
-                    "
-                    :text="currentStory.content.linkText"
-                    class="mt-6 xl:text-yellow-200"
-                    :to="
-                        currentStory.content.linkUrl.cached_url ||
-                        currentStory.content.linkUrl.url
-                    "
-                >
-                    {{ currentStory.content.linkText }}
-                </single-link>
+                <next-gig
+                    class="my-4 mt-4 flex flex-col gap-4 border-t border-blue-500 pt-4 text-md leading-none text-blue-300 hover:text-yellow xl:bg-blue-800 xl:px-3 xl:py-2"
+                    span-classes="text-white transition-colors group-hover:text-yellow-300"
+                    fake-link-classes="btn self-start"
+                />
             </div>
         </div>
     </div>
@@ -53,8 +44,6 @@ const storyblokStore = useStoryblokStore()
 const currentStory = computed(() => {
     return storyblokStore.currentStory
 })
-
-console.log(currentStory.value)
 
 definePageMeta({
     title: 'Consulting Civil, Structural and Highway Engineers'

@@ -47,6 +47,9 @@
                     <next-gig
                         class="mb-8 flex flex-col gap-1 text-md text-blue-300 hover:text-yellow"
                         span-classes="text-white transition-colors group-hover:text-yellow-300"
+                        date-classes="text-[0.8em]"
+                        fake-link-classes="text-[0.7em] underline underline-offset-4"
+                        fake-link-icon-classes="size-6"
                     />
                     <iframe
                         style="border-radius: 12px"
