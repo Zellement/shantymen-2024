@@ -37,7 +37,7 @@
             class="relative"
         >
             <div
-                class="absolute bottom-0 left-0 right-0 h-[700px] w-full bg-gradient-to-t from-white to-transparent"
+                class="absolute bottom-0 left-0 right-0 z-20 h-[700px] w-full bg-gradient-to-t from-white to-transparent"
             />
             <div class="sticky top-0 z-20 mb-6 bg-white xl:static">
                 <h2 class="mb-4 text-xl">Past Gigs</h2>

@@ -37,6 +37,7 @@
                 <span class="m-auto">{{ getMonth(gig.date) }}</span>
             </span>
             <span
+                v-if="!gig.hideTime"
                 :class="[
                     'bg-stone-100 text-center lg:col-span-full',
                     'flex w-full items-center justify-center gap-1 text-sm uppercase'

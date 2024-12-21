@@ -180,6 +180,7 @@ export const useStoryblokStore = defineStore('storyblok', {
                         sessions: gig.content.sessions,
                         sessionLength: gig.content.sessionLength,
                         moreInfoLink: gig.content.moreInfoLink,
+                        hideTime: gig.content.hideTime,
                         id: gig.id
                     })
                 })
@@ -243,6 +244,7 @@ export const useStoryblokStore = defineStore('storyblok', {
                         sessions: gig.content.sessions,
                         sessionLength: gig.content.sessionLength,
                         moreInfoLink: gig.content.moreInfoLink,
+                        hideTime: gig.content.hideTime,
                         id: gig.id
                     })
                 })
