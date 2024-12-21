@@ -168,7 +168,10 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             WEBSITE_URL: import.meta.env.WEBSITE_URL,
-            STORYBLOK_ACCESS_TOKEN: import.meta.env.STORYBLOK_ACCESS_TOKEN,
+            STORYBLOK_ACCESS_TOKEN_PROD: import.meta.env
+                .STORYBLOK_ACCESS_TOKEN_PROD,
+            STORYBLOK_ACCESS_TOKEN_PREVIEW: import.meta.env
+                .STORYBLOK_ACCESS_TOKEN_PREVIEW,
             STORYBLOK_SPACE_ID: import.meta.env.STORYBLOK_SPACE_ID,
             STORYBLOK_GLOBAL_OPTIONS_ID: import.meta.env
                 .STORYBLOK_GLOBAL_OPTIONS_ID,
