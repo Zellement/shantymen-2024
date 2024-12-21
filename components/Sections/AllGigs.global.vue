@@ -1,19 +1,22 @@
 <template>
-    <section v-if="storyblokStore?.allGigs" class="flex flex-col gap-16">
+    <section
+        v-if="storyblokStore?.allGigs"
+        class="flex flex-col gap-16 xl:pr-16"
+    >
         <div
             v-if="
                 storyblokStore?.allGigs?.future &&
                 storyblokStore?.allGigs?.future.length > 0
             "
         >
-            <div class="sticky top-0 z-20 mb-6 bg-white">
+            <div class="sticky top-0 z-20 mb-6 bg-white xl:static">
                 <h2 class="mb-4 text-xl">Upcoming Gigs</h2>
             </div>
             <div
                 v-for="yearGroup in storyblokStore.allGigs.future"
                 :key="yearGroup.year"
             >
-                <div class="sticky top-10 z-10 bg-white/90">
+                <div class="sticky top-10 z-10 bg-white/90 xl:static">
                     <h3 class="pb-2 text-lg">
                         {{ yearGroup.year }}
                     </h3>
@@ -37,14 +40,14 @@
             <div
                 class="absolute bottom-0 left-0 right-0 h-[700px] w-full bg-gradient-to-t from-white to-transparent"
             />
-            <div class="sticky top-0 z-20 mb-6 bg-white">
+            <div class="sticky top-0 z-20 mb-6 bg-white xl:static">
                 <h2 class="mb-4 text-xl">Past Gigs</h2>
             </div>
             <div
                 v-for="yearGroup in storyblokStore.allGigs.past"
                 :key="yearGroup.year"
             >
-                <div class="sticky top-10 z-10 bg-white/90">
+                <div class="sticky top-10 z-10 bg-white/90 xl:static">
                     <h3 class="pb-2 text-lg">
                         {{ yearGroup.year }}
                     </h3>

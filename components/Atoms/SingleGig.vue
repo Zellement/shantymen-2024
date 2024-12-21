@@ -1,12 +1,18 @@
 <template>
     <li
-        class="flex flex-col justify-start border p-4 lg:items-center lg:gap-16"
-        :class="isPast ? 'bg-stone-100 text-sm' : ''"
+        class="flex flex-col justify-start border lg:flex-row lg:gap-16"
+        :class="
+            isPast
+                ? 'bg-stone-100 px-4 py-2 text-sm lg:items-center'
+                : 'p-4 lg:items-start'
+        "
     >
-        <span class="grid w-full grid-cols-4 gap-2 lg:w-28 lg:grid-cols-2">
+        <span
+            class="grid w-full flex-shrink-0 grid-cols-4 gap-2 lg:w-28 lg:grid-cols-2 lg:gap-0"
+        >
             <span
                 :class="[
-                    'font-serif text-[11px] uppercase tracking-widest lg:text-[14px]',
+                    'bg-stone-100 font-serif text-[11px] uppercase tracking-widest lg:text-[14px]',
                     'lg:col-span-full lg:text-center'
                 ]"
             >
@@ -32,7 +38,7 @@
             </span>
             <span
                 :class="[
-                    'text-center lg:col-span-full',
+                    'bg-stone-100 text-center lg:col-span-full',
                     'flex w-full items-center justify-center gap-1 text-sm uppercase'
                 ]"
             >
@@ -41,7 +47,10 @@
             </span>
         </span>
         <span class="mt-2 flex flex-col gap-2 text-stone-600">
-            <h4 :class="isPast ? 'text-md' : 'text-lg'" class="text-blue">
+            <h4
+                :class="isPast ? 'text-md' : 'text-lg'"
+                class="mb-2 leading-none text-blue"
+            >
                 {{ gig.name }}
             </h4>
             <template v-if="!isPast">
@@ -56,8 +65,11 @@
             </template>
         </span>
         <single-link
-            v-if="gig.moreInfoLink?.cached_url ?? gig.moreInfoLink?.url"
-            class="btn self-end"
+            v-if="
+                (gig.moreInfoLink?.cached_url ?? gig.moreInfoLink?.url) &&
+                !isPast
+            "
+            class="btn flex-shrink-0 self-end lg:ml-auto"
             text="Learn more"
             target="_blank"
             :to="gig.moreInfoLink?.cached_url ?? gig.moreInfoLink?.url"
