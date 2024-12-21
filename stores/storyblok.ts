@@ -3,8 +3,6 @@ import type { RuntimeConfig } from 'nuxt/schema'
 
 // TS Interfaces & Types
 
-type EnvType = 'published' | 'draft'
-
 interface State {
     currentStory: AllTypes | null
     globalOptions: DataGlobalOptionsStoryblok | null
@@ -76,10 +74,11 @@ export const useStoryblokStore = defineStore('storyblok', {
         ): Promise<any> {
             const nuxtApp: NuxtApp = useNuxtApp() as unknown as NuxtApp
             const $storyblokClient: StoryblokClient = nuxtApp.$storyblokClient
-            const config: RuntimeConfig = useRuntimeConfig()
+            const { $preview } = useNuxtApp()
+            const version = $preview ? 'draft' : 'published'
             try {
                 const response = await $storyblokClient.get(fullPath, {
-                    version: config.public.STORYBLOK_ENV as EnvType,
+                    version: version,
                     ...options
                 })
                 if (!response.data) {
@@ -99,11 +98,6 @@ export const useStoryblokStore = defineStore('storyblok', {
                 const response = await this.fetchStoryblokData(
                     `cdn/stories/${queryParam}`,
                     {
-                        resolve_relations: [
-                            'sectionCardBlock.cards',
-                            'sectionCardCarousel.cards',
-                            'sectionReviewBlock.reviews'
-                        ],
                         resolve_links: 'story',
                         cv: config.public.STORYBLOK_CV_DISABLED
                             ? +new Date()
