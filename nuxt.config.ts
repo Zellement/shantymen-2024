@@ -175,7 +175,6 @@ export default defineNuxtConfig({
             STORYBLOK_SPACE_ID: import.meta.env.STORYBLOK_SPACE_ID,
             STORYBLOK_GLOBAL_OPTIONS_ID: import.meta.env
                 .STORYBLOK_GLOBAL_OPTIONS_ID,
-            STORYBLOK_ENV: import.meta.env.STORYBLOK_ENV,
             STORYBLOK_CV_DISABLED: import.meta.env.STORYBLOK_CV_DISABLED
         }
     },

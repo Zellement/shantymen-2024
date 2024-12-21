@@ -1,17 +1,20 @@
 <template>
-    <li class="flex flex-row items-center justify-start gap-16">
-        <span class="col-span-2 grid w-28 grid-cols-2">
+    <li
+        class="flex flex-col justify-start border p-4 lg:items-center lg:gap-16"
+        :class="isPast ? 'bg-stone-100 text-sm' : ''"
+    >
+        <span class="grid w-full grid-cols-4 gap-2 lg:w-28 lg:grid-cols-2">
             <span
                 :class="[
-                    'col-span-full text-center',
-                    'font-serif text-[14px] uppercase tracking-widest'
+                    'font-serif text-[11px] uppercase tracking-widest lg:text-[14px]',
+                    'lg:col-span-full lg:text-center'
                 ]"
             >
                 {{ getWeekDay(gig.date) }}
             </span>
             <span
                 :class="[
-                    'col-span-1 row-span-1 row-start-2',
+                    'col-span-1 lg:row-span-1 lg:row-start-2',
                     'text-center',
                     'bg-slate-700 text-white'
                 ]"
@@ -20,7 +23,7 @@
             </span>
             <span
                 :class="[
-                    'col-span-1 row-span-1 row-start-2',
+                    'col-span-1 lg:row-span-1 lg:row-start-2',
                     'w-full text-center',
                     'flex bg-yellow-500 text-base'
                 ]"
@@ -29,7 +32,7 @@
             </span>
             <span
                 :class="[
-                    'col-span-full text-center',
+                    'text-center lg:col-span-full',
                     'flex w-full items-center justify-center gap-1 text-sm uppercase'
                 ]"
             >
@@ -37,23 +40,27 @@
                 {{ getTime(gig.date) }}
             </span>
         </span>
-        <span class="flex flex-col">
-            <h4>{{ gig.name }}</h4>
-            <p v-if="gig.locationInfo">{{ gig.locationInfo }}</p>
-            <p v-if="gig.description">{{ gig.description }}</p>
-            <p class="flex gap-2">
-                <span v-if="gig.sessions">{{ gig.sessions }} x sessions</span>
-                <span v-if="gig.sessionLength"
-                    >{{ gig.sessionLength }} mins</span
-                >
-            </p>
+        <span class="mt-2 flex flex-col gap-2 text-stone-600">
+            <h4 :class="isPast ? 'text-md' : 'text-lg'" class="text-blue">
+                {{ gig.name }}
+            </h4>
+            <template v-if="!isPast">
+                <p v-if="gig.locationInfo">{{ gig.locationInfo }}</p>
+                <p v-if="gig.description">{{ gig.description }}</p>
+                <p class="mt-4 flex gap-1">
+                    <span v-if="gig.sessions">{{ gig.sessions }} x</span>
+                    <span v-if="gig.sessionLength"
+                        >{{ gig.sessionLength }} min sessions</span
+                    >
+                </p>
+            </template>
         </span>
         <single-link
-            v-if="gig.moreInfoLink"
-            class="btn"
+            v-if="gig.moreInfoLink?.cached_url ?? gig.moreInfoLink?.url"
+            class="btn self-end"
             text="Learn more"
             target="_blank"
-            :to="gig.moreInfoLink.cached_url ?? gig.moreInfoLink.url"
+            :to="gig.moreInfoLink?.cached_url ?? gig.moreInfoLink?.url"
         />
     </li>
 </template>
@@ -61,6 +68,7 @@
 <script lang="ts" setup>
 interface Props {
     gig: any
+    isPast?: boolean
 }
 
 defineProps<Props>()
