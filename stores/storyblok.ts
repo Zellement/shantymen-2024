@@ -11,7 +11,9 @@ interface State {
     recentNewsStories: TemplateNewsStoryblok[] | null
     totalNewsStories: number | null
     postsPerPage: number
-    allGigs: any
+    futureGigs: any
+    pastGigs: any
+    nextGig: DataGigStoryblok | null
     // Booleans
     dataLoaded: boolean
     dataIsLoading: boolean
@@ -41,7 +43,9 @@ export const useStoryblokStore = defineStore('storyblok', {
         dataIsLoading: false,
         firstLoad: true,
         postsPerPage: 6,
-        allGigs: null
+        futureGigs: null,
+        pastGigs: null,
+        nextGig: null
     }),
     getters: {
         getTotalNewsPages(state): number {
@@ -130,41 +134,45 @@ export const useStoryblokStore = defineStore('storyblok', {
             }
         },
 
-        async fetchGigs(): Promise<void> {
+        async fetchFutureGigs(): Promise<void> {
             try {
+                const today = new Date()
+                const formattedToday = today
+                    .toISOString()
+                    .slice(0, 16)
+                    .replace('T', ' ')
+
                 const response = await this.fetchStoryblokData(`cdn/stories/`, {
                     content_type: 'dataGig',
                     per_page: 100,
-                    sort_by: 'content.date:asc'
+                    sort_by: 'content.date:asc',
+                    filter_query: {
+                        date: {
+                            gt_date: formattedToday
+                        }
+                    }
                 })
+                // Sort array by date
+                const futureGigsArray = response.data?.stories.sort
+                    ? response.data?.stories.sort(
+                          (a: DataGigStoryblok, b: DataGigStoryblok) =>
+                              new Date(a.content.date).getTime() -
+                              new Date(b.content.date).getTime()
+                      )
+                    : []
+                this.nextGig = futureGigsArray[0]
                 const gigs = response.data?.stories || []
-                const today = new Date()
-                const allGigs: {
-                    future: { year: number; gigs: any[] }[]
-                    past: { year: number; gigs: any[] }[]
-                } = {
-                    future: [],
-                    past: []
-                }
-
-                const gigsByYear: {
-                    future: { [key: number]: any[] }
-                    past: { [key: number]: any[] }
-                } = {
-                    future: {},
-                    past: {}
-                }
+                const gigsByYear: { [key: number]: any[] } = {}
 
                 gigs.forEach((gig: DataGigStoryblok) => {
                     const gigDate = new Date(gig.content.date)
                     const year = gigDate.getFullYear()
-                    const category = gigDate >= today ? 'future' : 'past'
 
-                    if (!gigsByYear[category][year]) {
-                        gigsByYear[category][year] = []
+                    if (!gigsByYear[year]) {
+                        gigsByYear[year] = []
                     }
 
-                    gigsByYear[category][year].push({
+                    gigsByYear[year].push({
                         name: gig.name,
                         date: gigDate,
                         locationInfo: gig.content.locationInfo,
@@ -177,34 +185,84 @@ export const useStoryblokStore = defineStore('storyblok', {
                 })
 
                 // Sort the gigs within each year group
-                Object.keys(gigsByYear.future).forEach((year) => {
-                    gigsByYear.future[parseInt(year)].sort(
+                Object.keys(gigsByYear).forEach((year) => {
+                    gigsByYear[parseInt(year)].sort(
                         (a, b) => a.date.getTime() - b.date.getTime()
                     )
                 })
 
-                Object.keys(gigsByYear.past).forEach((year) => {
-                    gigsByYear.past[parseInt(year)].sort(
+                // Convert the gigsByYear object to sorted arrays
+                const futureGigs = Object.keys(gigsByYear)
+                    .sort((a, b) => parseInt(a) - parseInt(b))
+                    .map((year) => ({
+                        year: parseInt(year),
+                        gigs: gigsByYear[parseInt(year)]
+                    }))
+
+                this.futureGigs = futureGigs
+            } catch (error) {
+                throw error
+            }
+        },
+
+        async fetchPastGigs(): Promise<void> {
+            try {
+                const today = new Date()
+                const formattedToday = today
+                    .toISOString()
+                    .slice(0, 16)
+                    .replace('T', ' ')
+
+                const response = await this.fetchStoryblokData(`cdn/stories/`, {
+                    content_type: 'dataGig',
+                    per_page: 100,
+                    sort_by: 'content.date:asc',
+                    filter_query: {
+                        date: {
+                            lt_date: formattedToday
+                        }
+                    }
+                })
+
+                const gigs = response.data?.stories || []
+                const gigsByYear: { [key: number]: any[] } = {}
+
+                gigs.forEach((gig: DataGigStoryblok) => {
+                    const gigDate = new Date(gig.content.date)
+                    const year = gigDate.getFullYear()
+
+                    if (!gigsByYear[year]) {
+                        gigsByYear[year] = []
+                    }
+
+                    gigsByYear[year].push({
+                        name: gig.name,
+                        date: gigDate,
+                        locationInfo: gig.content.locationInfo,
+                        description: gig.content.description,
+                        sessions: gig.content.sessions,
+                        sessionLength: gig.content.sessionLength,
+                        moreInfoLink: gig.content.moreInfoLink,
+                        id: gig.id
+                    })
+                })
+
+                // Sort the gigs within each year group
+                Object.keys(gigsByYear).forEach((year) => {
+                    gigsByYear[parseInt(year)].sort(
                         (a, b) => b.date.getTime() - a.date.getTime()
                     )
                 })
 
                 // Convert the gigsByYear object to sorted arrays
-                allGigs.future = Object.keys(gigsByYear.future)
-                    .sort((a, b) => parseInt(a) - parseInt(b))
+                const pastGigs = Object.keys(gigsByYear)
+                    .sort((a, b) => parseInt(b) - parseInt(a))
                     .map((year) => ({
                         year: parseInt(year),
-                        gigs: gigsByYear.future[parseInt(year)]
+                        gigs: gigsByYear[parseInt(year)]
                     }))
 
-                allGigs.past = Object.keys(gigsByYear.past)
-                    .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
-                    .map((year) => ({
-                        year: parseInt(year),
-                        gigs: gigsByYear.past[parseInt(year)]
-                    }))
-
-                this.allGigs = allGigs
+                this.pastGigs = pastGigs
             } catch (error) {
                 throw error
             }
@@ -213,6 +271,7 @@ export const useStoryblokStore = defineStore('storyblok', {
         // Fetches required data once in app.vue
         async fetchRequired(): Promise<void> {
             await this.fetchGlobalOptions()
+            await this.fetchFutureGigs()
         }
     }
 })

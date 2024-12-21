@@ -1,19 +1,19 @@
 <template>
     <section
-        v-if="storyblokStore?.allGigs"
+        v-if="storyblokStore?.futureGigs"
         class="flex flex-col gap-16 xl:pr-16"
     >
         <div
             v-if="
-                storyblokStore?.allGigs?.future &&
-                storyblokStore?.allGigs?.future.length > 0
+                storyblokStore?.futureGigs &&
+                storyblokStore?.futureGigs.length > 0
             "
         >
             <div class="sticky top-0 z-20 mb-6 bg-white xl:static">
                 <h2 class="mb-4 text-xl">Upcoming Gigs</h2>
             </div>
             <div
-                v-for="yearGroup in storyblokStore.allGigs.future"
+                v-for="yearGroup in storyblokStore.futureGigs"
                 :key="yearGroup.year"
             >
                 <div class="sticky top-10 z-10 bg-white/90 xl:static">
@@ -32,8 +32,7 @@
         </div>
         <div
             v-if="
-                storyblokStore?.allGigs?.past &&
-                storyblokStore?.allGigs?.past.length > 0
+                storyblokStore?.pastGigs && storyblokStore?.pastGigs.length > 0
             "
             class="relative"
         >
@@ -44,7 +43,7 @@
                 <h2 class="mb-4 text-xl">Past Gigs</h2>
             </div>
             <div
-                v-for="yearGroup in storyblokStore.allGigs.past"
+                v-for="yearGroup in storyblokStore.pastGigs"
                 :key="yearGroup.year"
             >
                 <div class="sticky top-10 z-10 bg-white/90 xl:static">
@@ -69,6 +68,6 @@
 const storyblokStore = useStoryblokStore()
 
 onMounted(async () => {
-    await storyblokStore.fetchGigs()
+    await storyblokStore.fetchPastGigs()
 })
 </script>

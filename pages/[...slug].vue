@@ -44,7 +44,10 @@
                             {{ lastUpdated }}
                         </li>
                     </ul> -->
-
+                    <next-gig
+                        class="mb-8 flex flex-col gap-1 text-md text-blue-300 hover:text-yellow"
+                        span-classes="text-white transition-colors group-hover:text-yellow-300"
+                    />
                     <iframe
                         style="border-radius: 12px"
                         src="https://open.spotify.com/embed/artist/06bi895n8wIOUi35sk65gJ?utm_source=generator"
@@ -77,13 +80,4 @@ const id = useId()
 const currentStory = computed(() => {
     return storyblokStore.currentStory
 })
-
-// const lastUpdated: ComputedRef<string> = computed(() => {
-//     return new Date(currentStory.value.updated_at).toLocaleDateString('en-GB', {
-//         weekday: 'long',
-//         year: 'numeric',
-//         month: 'long',
-//         day: 'numeric'
-//     })
-// })
 </script>
