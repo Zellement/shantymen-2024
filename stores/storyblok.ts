@@ -135,7 +135,7 @@ export const useStoryblokStore = defineStore('storyblok', {
                 const response = await this.fetchStoryblokData(`cdn/stories/`, {
                     content_type: 'dataGig',
                     per_page: 100,
-                    sort_by: 'content.date:desc'
+                    sort_by: 'content.date:asc'
                 })
                 const gigs = response.data?.stories || []
                 const today = new Date()
@@ -166,7 +166,7 @@ export const useStoryblokStore = defineStore('storyblok', {
 
                     gigsByYear[category][year].push({
                         name: gig.name,
-                        date: new Date(gig.content.date),
+                        date: gigDate,
                         locationInfo: gig.content.locationInfo,
                         description: gig.content.description,
                         sessions: gig.content.sessions,
@@ -176,16 +176,29 @@ export const useStoryblokStore = defineStore('storyblok', {
                     })
                 })
 
+                // Sort the gigs within each year group
+                Object.keys(gigsByYear.future).forEach((year) => {
+                    gigsByYear.future[parseInt(year)].sort(
+                        (a, b) => a.date.getTime() - b.date.getTime()
+                    )
+                })
+
+                Object.keys(gigsByYear.past).forEach((year) => {
+                    gigsByYear.past[parseInt(year)].sort(
+                        (a, b) => b.date.getTime() - a.date.getTime()
+                    )
+                })
+
                 // Convert the gigsByYear object to sorted arrays
                 allGigs.future = Object.keys(gigsByYear.future)
-                    .sort((a, b) => parseInt(b) - parseInt(a))
+                    .sort((a, b) => parseInt(a) - parseInt(b))
                     .map((year) => ({
                         year: parseInt(year),
                         gigs: gigsByYear.future[parseInt(year)]
                     }))
 
                 allGigs.past = Object.keys(gigsByYear.past)
-                    .sort((a, b) => parseInt(b) - parseInt(a))
+                    .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
                     .map((year) => ({
                         year: parseInt(year),
                         gigs: gigsByYear.past[parseInt(year)]
@@ -196,6 +209,7 @@ export const useStoryblokStore = defineStore('storyblok', {
                 throw error
             }
         },
+
         // Fetches required data once in app.vue
         async fetchRequired(): Promise<void> {
             await this.fetchGlobalOptions()
