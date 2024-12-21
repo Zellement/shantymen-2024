@@ -32,7 +32,11 @@
                 storyblokStore?.allGigs?.past &&
                 storyblokStore?.allGigs?.past.length > 0
             "
+            class="relative"
         >
+            <div
+                class="absolute bottom-0 left-0 right-0 h-[700px] w-full bg-gradient-to-t from-white to-transparent"
+            />
             <div class="sticky top-0 z-20 mb-6 bg-white">
                 <h2 class="mb-4 text-xl">Past Gigs</h2>
             </div>

@@ -33,7 +33,7 @@
         </div>
         <div class="relative grid grid-cols-12">
             <div
-                class="sticky top-0 order-last col-span-full flex flex-col pt-[25vh] text-white xl:order-first xl:col-span-4 xl:col-start-1"
+                class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[25vh]"
             >
                 <div class="sticky top-0 p-8 text-right text-sm text-blue-400">
                     <!-- <ul class="mb-8">
