@@ -60,7 +60,7 @@ h6 {
  * Rich Text / Body Copy
  */
 .content {
-    @apply flex flex-col space-y-4;
+    @apply flex flex-col space-y-4 text-stone-600;
 
     @for $i from 1 through 6 {
         h#{$i} {
@@ -73,7 +73,7 @@ h6 {
     }
 
     h3 {
-        @apply text-md text-green-500;
+        @apply text-md text-blue-500;
     }
 
     h4 {
@@ -81,7 +81,7 @@ h6 {
     }
 
     h5 {
-        @apply text-base text-green-500;
+        @apply text-base text-blue-500;
     }
 
     p strong {
@@ -91,11 +91,11 @@ h6 {
     ul,
     ol,
     dl {
-        @apply mb-4 flex flex-col gap-4 pl-4;
+        @apply flex flex-col gap-1 pb-8 pl-4;
 
         li,
         dd {
-            @apply relative ml-4 list-none after:absolute after:left-0 after:top-3.5 after:size-2 after:-translate-x-6 after:rounded-full after:bg-blue after:content-[''];
+            @apply relative ml-4 list-none after:absolute after:left-0 after:top-3 after:size-2 after:-translate-x-6 after:rounded-full after:bg-gradient-to-br after:from-yellow-800 after:to-yellow-500 after:content-[''];
 
             > ul,
             > dl,
@@ -112,10 +112,10 @@ h6 {
     }
 
     a {
-        @apply text-green-500 underline transition-colors hover:text-green-900;
+        @apply text-yellow-700 underline transition-colors hover:text-blue-500;
     }
 
     blockquote {
-        @apply border-l-4 border-slate-300 bg-slate-200 p-4 font-serif text-md;
+        @apply flex flex-col gap-6 border-l-4 border-slate-300 bg-slate-200 p-4 font-serif text-md xl:p-8;
     }
 }
