@@ -1,6 +1,9 @@
 <template>
     <div class="block-loop">
-        <template v-for="(entry, index) in mappedBlocks" :key="entry.id">
+        <template
+            v-for="(entry, index) in mappedBlocks"
+            :key="entry.content._uid"
+        >
             <component
                 :is="entry.component"
                 :content="entry.content"
