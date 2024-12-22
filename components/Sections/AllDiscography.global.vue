@@ -15,6 +15,7 @@
                 <div class="flex flex-col gap-4">
                     <nuxt-img
                         :src="album.content.cover.filename ?? ''"
+provider="storyblok"
                         :alt="album.name"
                         class="mx-auto aspect-square w-40"
                     />
