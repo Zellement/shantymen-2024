@@ -24,7 +24,7 @@
                     <Transition name="slide-up">
                         <span
                             v-if="!uiStore.showMobileNav"
-                            class="absolute right-0 top-0 flex items-center gap-2"
+                            class="absolute right-0 top-0 flex items-center bg-blue px-2 py-1 gap-2"
                         >
                             <span class="">Menu</span>
 
