@@ -15,7 +15,7 @@
 .site-nav-desktop {
     @apply flex w-full justify-start text-sm xl:text-base;
     ul {
-        @apply ml-auto inline-flex h-[110px] w-auto gap-1;
+        @apply ml-auto inline-flex h-[110px] w-auto gap-px xl:gap-1;
     }
     li {
         @apply flex;
