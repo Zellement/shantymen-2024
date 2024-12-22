@@ -4,12 +4,6 @@
         :class="uiStore.pageIsLoading ? 'top-0' : 'top-full delay-200'"
     >
         <div
-            class="panel-base bg-yellow-500"
-            :class="
-                uiStore.pageIsLoading ? 'top-0 delay-100' : 'top-full delay-200'
-            "
-        />
-        <div
             class="panel-base bg-blue-500"
             :class="uiStore.pageIsLoading ? 'top-0 delay-200' : 'top-full'"
         />
@@ -37,6 +31,6 @@ const uiStore = useUiStore()
 
 <style scoped lang="scss">
 .panel-base {
-    @apply absolute bottom-0 z-0 w-screen transition-[top] duration-700 ease-in-out;
+    @apply absolute bottom-0 z-0 w-screen transition-[top] duration-500 ease-in-out;
 }
 </style>
