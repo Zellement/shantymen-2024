@@ -14,7 +14,7 @@
                     {{ navItem.name }}
                 </nuxt-link>
             </li>
-            <li class="mt-8 xl:mt-0">
+            <li class="mt-8 lg:mt-0">
                 <nuxt-link
                     to="https://www.facebook.com/thesheringhamshantymenofficial/"
                     target="_blank"

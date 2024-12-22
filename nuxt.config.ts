@@ -22,8 +22,13 @@ export default defineNuxtConfig({
         'nuxt-viewport',
         '@nuxtjs/seo',
         '@nuxt/fonts',
-        '@nuxt/icon'
+        '@nuxt/icon',
+        'nuxt-disqus'
     ],
+
+    disqus: {
+        shortname: 'shantymen'
+    },
 
     svgSprite: {
         input: '~/assets/icons/svg',

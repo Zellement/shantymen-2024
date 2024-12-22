@@ -6,7 +6,7 @@
     >
         <div class="grid-layout container container-px">
             <div
-                class="relative col-span-4 col-start-1 flex w-full items-center justify-between lg:col-span-5"
+                class="relative col-span-4 col-start-1 flex w-full items-center justify-between lg:col-span-2"
             >
                 <site-brand class="relative z-40 mr-auto h-16 lg:h-24" />
             </div>
@@ -48,7 +48,7 @@
 
             <site-nav
                 v-if="isDesktop"
-                class="site-nav-desktop col-span-7 col-start-6 h-[110px]"
+                class="site-nav-desktop col-span-10 col-start-3 h-[110px]"
             />
         </div>
 

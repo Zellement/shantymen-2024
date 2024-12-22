@@ -8,12 +8,12 @@
     }
 
     .router-link-active {
-        @apply border-yellow border-l-4 pl-4;
+        @apply border-l-4 border-yellow pl-4;
     }
 }
 
 .site-nav-desktop {
-    @apply flex w-full justify-start;
+    @apply flex w-full justify-start text-sm xl:text-base;
     ul {
         @apply ml-auto inline-flex h-[110px] w-auto gap-1;
     }
@@ -21,7 +21,7 @@
         @apply flex;
     }
     a {
-        @apply hover:border-yellow flex border-b-2 border-blue-600 bg-blue-600 px-3 pb-2 pt-16 font-serif transition-all hover:pt-12;
+        @apply flex whitespace-nowrap border-b-2 border-blue-600 bg-blue-600 px-3 pb-2 pt-16 font-serif transition-all hover:border-yellow hover:pt-12;
     }
 
     .router-link-active {

@@ -9,15 +9,15 @@
                     alt: currentStory.content.heroMedia.alt
                 }"
                 class="xl:h-[50vh aspect-square lg:aspect-landscape xl:aspect-auto xl:w-full xl:object-cover"
-                sizes="500px lg:1200px xl:1600px"
+                sizes="500px lg:1000px xl:1600px"
             />
         </div>
     </div>
     <div
-        class="container container-px relative -mb-6 w-full xl:translate-y-25vh"
+        class="container container-px relative z-10 -mb-6 w-full xl:translate-y-25vh"
     >
         <div
-            class="flex max-w-screen-sm-md -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:bg-transparent xl:p-0 xl:text-white"
+            class="mx-auto flex max-w-screen-sm-md -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:mx-0 xl:bg-transparent xl:p-0 xl:text-white"
         >
             <h1 class="text-3xl xl:bg-blue-800 xl:px-3 xl:py-2">
                 {{ currentStory.content.heroPrimary }}

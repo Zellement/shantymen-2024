@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-screen-sm-md">
+    <section class="mx-auto max-w-screen-sm-md xl:m-0">
         <rich-text :content="content.text" />
     </section>
 </template>
