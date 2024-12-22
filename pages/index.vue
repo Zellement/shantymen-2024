@@ -46,6 +46,7 @@ const currentStory = computed(() => {
 })
 
 definePageMeta({
-    title: 'Consulting Civil, Structural and Highway Engineers'
+    title: 'Supporters of the RNLI and other charities.',
+    layout: 'home'
 })
 </script>
