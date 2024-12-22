@@ -8,7 +8,6 @@ export default defineNuxtRouteMiddleware(
         from: RouteLocationNormalized
     ): Promise<void> => {
         if (to.path.includes('.')) return
-        console.log(to)
         const storyblokStore = useStoryblokStore()
         const ANIMATION_DELAY: number = 300
 

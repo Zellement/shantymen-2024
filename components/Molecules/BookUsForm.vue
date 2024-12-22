@@ -15,7 +15,7 @@
 
         <label>
             <span>Venue *</span>
-            <input required type="text" name="venu" />
+            <input required type="text" name="venue" />
         </label>
         <label>
             <span>Date & time requested *</span>
@@ -23,7 +23,7 @@
         </label>
         <label>
             <span>Details *</span>
-            <textarea required class="h-40" name="message"></textarea>
+            <textarea required class="h-40" name="details"></textarea>
         </label>
         <button class="btn cursor-pointer self-start" type="submit">
             Submit booking request

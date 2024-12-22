@@ -12,8 +12,8 @@
         >
             <span
                 :class="[
-                    'bg-stone-100 font-serif text-[11px] uppercase tracking-widest lg:text-[14px]',
-                    'lg:col-span-full lg:text-center'
+                    'bg-stone-100 font-serif text-[11px] uppercase tracking-widest 2xl:text-[14px]',
+                    'text-center lg:col-span-full'
                 ]"
             >
                 {{ getWeekDay(gig.date) }}
@@ -43,7 +43,10 @@
                     'flex w-full items-center justify-center gap-1 text-sm uppercase'
                 ]"
             >
-                <Icon name="material-symbols:alarm" class="size-4 opacity-50" />
+                <Icon
+                    name="ic:round-access-time-filled"
+                    class="size-4 opacity-50"
+                />
                 {{ getTime(gig.date) }}
             </span>
         </span>
@@ -86,6 +89,8 @@ interface Props {
 
 defineProps<Props>()
 
+const viewport = useViewport()
+
 const getDay = (date: Date): string => {
     return date.toLocaleDateString('en-GB', {
         day: 'numeric'
@@ -107,7 +112,7 @@ const getMonth = (date: Date): string => {
 
 const getWeekDay = (date: Date): string => {
     return date.toLocaleDateString('en-GB', {
-        weekday: 'long'
+        weekday: viewport.isLessThan('md') ? 'short' : 'long'
     })
 }
 </script>

@@ -9,7 +9,7 @@
                     class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[25vh]"
                 >
                     <div
-                        class="sticky top-0 flex flex-col p-8 text-sm text-blue-400 md:grid md:grid-cols-2 xl:text-right"
+                        class="sticky top-0 flex flex-col p-8 text-sm text-blue-400 md:grid md:grid-cols-2 xl:flex xl:flex-col xl:text-right"
                     >
                         <next-gig
                             class="mb-8 flex flex-col gap-1 text-md text-blue-300 md:col-span-full"
@@ -18,12 +18,21 @@
                             link-classes="text-[0.7em] self-start xl:self-end hover:text-yellow"
                         />
                         <spotify-player />
-                        <div class="flex items-end">
+                        <div class="flex flex-col items-end pt-8 xl:pt-40">
                             <p>
-                                The Sheringham Shantymen ©
-                                {{ thisYear }} Website
+                                The Sheringham Shantymen &copy;
+                                {{ thisYear }}
                             </p>
-                            <p>by Zellement</p>
+                            <p>
+                                Website by
+                                <nuxt-link
+                                    target="_blank"
+                                    to="https://www.zellement.com"
+                                    class="transition-colors hover:text-yellow"
+                                >
+                                    Zellement
+                                </nuxt-link>
+                            </p>
                         </div>
                     </div>
                 </div>
