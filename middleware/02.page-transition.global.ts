@@ -8,7 +8,7 @@ let runOnce = false
 export default defineNuxtRouteMiddleware((): void => {
     const uiStore = useUiStore()
     const timer1: number = 500
-    const timer2: number = 700
+    const timer2: number = 800
     const timer3: number = 600
     const timer4: number = 800
 
