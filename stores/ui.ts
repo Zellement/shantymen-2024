@@ -9,6 +9,7 @@ interface State {
     animationsDisabled: boolean
     pageIsLoading: boolean
     pageHasLoaded: boolean
+    spotifySrc: string
 }
 
 export const useUiStore = defineStore('ui', {
@@ -16,7 +17,9 @@ export const useUiStore = defineStore('ui', {
         showMobileNav: false,
         animationsDisabled: false,
         pageIsLoading: true,
-        pageHasLoaded: false
+        pageHasLoaded: false,
+        spotifySrc:
+            'https://open.spotify.com/embed/artist/06bi895n8wIOUi35sk65gJ?utm_source=generator'
     }),
     actions: {
         toggleBoolean(

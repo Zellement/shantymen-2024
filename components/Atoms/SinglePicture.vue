@@ -164,6 +164,8 @@ const definedAspectRatios: Record<string, string> = {
     tall: '390 / 550'
 }
 
+const id = useId()
+
 const imageAspectRatio: ComputedRef<{
     width: number | undefined
     height: number | undefined
@@ -190,7 +192,7 @@ const imageHeight: ComputedRef<number | string | undefined> = computed(() => {
 })
 
 const pictureKey: ComputedRef<string> = computed(() => {
-    return `${route.fullPath}-${props.imgData.url}`
+    return `${route.fullPath}-${props.imgData.url}-${id}`
 })
 
 const animationsDisabled: ComputedRef<boolean> = computed(() => {

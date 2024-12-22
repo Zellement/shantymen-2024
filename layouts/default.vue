@@ -9,14 +9,13 @@
                     class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[25vh]"
                 >
                     <div
-                        class="sticky top-0 p-8 text-right text-sm text-blue-400"
+                        class="sticky top-0 p-8 text-sm text-blue-400 xl:text-right"
                     >
                         <next-gig
-                            class="mb-8 flex flex-col gap-1 text-md text-blue-300 hover:text-yellow"
-                            span-classes="text-white transition-colors group-hover:text-yellow-300"
+                            class="mb-8 flex flex-col gap-1 text-md text-blue-300"
+                            span-classes="text-white"
                             date-classes="text-[0.8em]"
-                            fake-link-classes="text-[0.7em] underline underline-offset-4"
-                            fake-link-icon-classes="size-6"
+                            link-classes="text-[0.7em] self-start xl:self-end hover:text-yellow"
                         />
                         <spotify-player />
                     </div>
@@ -31,3 +30,5 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts"></script>

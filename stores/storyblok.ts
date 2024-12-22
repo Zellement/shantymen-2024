@@ -14,6 +14,7 @@ interface State {
     futureGigs: any
     pastGigs: any
     nextGig: DataGigStoryblok | null
+    allDiscography: DataAlbumStoryblok[] | null
     // Booleans
     dataLoaded: boolean
     dataIsLoading: boolean
@@ -39,13 +40,14 @@ export const useStoryblokStore = defineStore('storyblok', {
         newsStories: null,
         recentNewsStories: null,
         totalNewsStories: null,
-        dataLoaded: false,
-        dataIsLoading: false,
-        firstLoad: true,
         postsPerPage: 6,
         futureGigs: null,
         pastGigs: null,
-        nextGig: null
+        nextGig: null,
+        allDiscography: null,
+        dataLoaded: false,
+        dataIsLoading: false,
+        firstLoad: true
     }),
     getters: {
         getTotalNewsPages(state): number {
@@ -265,6 +267,19 @@ export const useStoryblokStore = defineStore('storyblok', {
                     }))
 
                 this.pastGigs = pastGigs
+            } catch (error) {
+                throw error
+            }
+        },
+
+        async fetchAllDiscography(): Promise<void> {
+            try {
+                const response = await this.fetchStoryblokData(`cdn/stories/`, {
+                    content_type: 'dataAlbum',
+                    per_page: 100,
+                    sort_by: 'content.year:desc'
+                })
+                this.allDiscography = response.data?.stories
             } catch (error) {
                 throw error
             }

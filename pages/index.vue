@@ -29,9 +29,10 @@
                     {{ currentStory.content.heroSecondary }}
                 </h2>
                 <next-gig
-                    class="my-4 mt-4 flex flex-col gap-4 border-t border-blue-500 pt-4 text-md leading-none text-blue-300 hover:text-yellow xl:bg-blue-800 xl:px-3 xl:py-2"
-                    span-classes="text-white transition-colors group-hover:text-yellow-300"
-                    fake-link-classes="btn self-start"
+                    class="my-4 mt-4 flex flex-col gap-4 border-t border-blue-500 pt-4 text-md leading-none text-blue-300 xl:bg-blue-800 xl:px-3 xl:py-2"
+                    span-classes="text-white"
+                    date-classes="text-[0.8em]"
+                    link-classes="text-[0.7em] self-start  hover:text-yellow"
                 />
             </div>
         </div>

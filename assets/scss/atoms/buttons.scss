@@ -1,5 +1,11 @@
 @layer utilities {
     .btn {
-        @apply flex items-center border-b border-current py-2 text-base;
+        @apply flex items-center gap-1 border-b border-current py-1 transition-colors;
+        &--yellow {
+            @apply border-yellow-500 text-yellow-500;
+        }
+        &--yellow-800 {
+            @apply border-yellow-800 text-yellow-800;
+        }
     }
 }

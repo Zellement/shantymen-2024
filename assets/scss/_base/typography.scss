@@ -107,7 +107,7 @@ h6 {
 
     ol {
         li {
-            @apply list-decimal;
+            @apply list-decimal after:hidden;
         }
     }
 

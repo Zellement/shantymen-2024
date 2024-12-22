@@ -1,11 +1,59 @@
 {
   "components": [
     {
+      "name": "dataAlbum",
+      "display_name": "Album",
+      "description": "A single album.",
+      "created_at": "2024-12-22T10:42:43.912Z",
+      "updated_at": "2024-12-22T10:46:15.842Z",
+      "id": 6719199,
+      "schema": {
+        "year": {
+          "type": "number",
+          "pos": 0,
+          "id": "zRQQJPTXTTKX_UxAlIwLSg",
+          "required": true
+        },
+        "cover": {
+          "type": "asset",
+          "pos": 1,
+          "id": "VyMrqoKiR6Ktmdz_JGLN1w",
+          "required": true,
+          "asset_folder_id": 688292
+        },
+        "text": {
+          "type": "richtext",
+          "pos": 2,
+          "customize_toolbar": true,
+          "toolbar": [
+            "olist"
+          ],
+          "id": "lEiaRRVjRSuRe_j3uJk6ng",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Album",
+      "component_group_uuid": "all",
+      "color": "#374dc3",
+      "icon": "block-sticker",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
       "name": "dataGig",
       "display_name": "Gig",
       "description": "A single gig.",
       "created_at": "2024-12-18T15:18:48.435Z",
-      "updated_at": "2024-12-18T16:19:03.900Z",
+      "updated_at": "2024-12-21T08:52:58.533Z",
       "id": 6708116,
       "schema": {
         "locationInfo": {
@@ -18,30 +66,38 @@
           "type": "datetime",
           "pos": 1,
           "id": "Uv65EBzBQtiUzCg8bTxhwg",
-          "description": "The date and time of the gig. If the gig is over multiple days, just put the first day here and add more info in the description box."
+          "description": "The date and time of the gig. If the gig is over multiple days, just put the first day here and add more info in the description box.",
+          "required": true,
+          "display_name": "Date & Time"
+        },
+        "hideTime": {
+          "type": "boolean",
+          "pos": 2,
+          "id": "XA3Dv7-2SlGuNG5nyv8M3w",
+          "description": "If you don't want to show the time, enable this."
         },
         "description": {
           "type": "textarea",
-          "pos": 2,
+          "pos": 3,
           "id": "ijlsMKfiR--h3ZgxSpRA0g",
           "description": "Any more information about the gig."
         },
         "sessions": {
           "type": "number",
-          "pos": 3,
+          "pos": 4,
           "id": "q2mn8jzaRsyOXA06obt_sw",
           "description": "How many sessions?"
         },
         "sessionLength": {
           "type": "number",
-          "pos": 4,
+          "pos": 5,
           "description": "In minutes.",
           "required": false,
           "id": "5CnjDhdERsOMpMLlepqMEQ"
         },
         "moreInfoLink": {
           "type": "multilink",
-          "pos": 5,
+          "pos": 6,
           "id": "bd8N31sgSBCf_JN95nqUkw",
           "description": "A link off-site for more information, tickets etc."
         }
@@ -98,6 +154,30 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": ""
+    },
+    {
+      "name": "sectionAllDiscography",
+      "display_name": "All Discography",
+      "description": "This will drop all the albums on to the page.",
+      "created_at": "2024-12-22T10:51:21.883Z",
+      "updated_at": "2024-12-22T10:51:43.824Z",
+      "id": 6719201,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "All Discography",
+      "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "color": "#f5a928",
+      "icon": "block-block",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "Body"
     },
     {
       "name": "sectionAllGigs",
@@ -167,7 +247,7 @@
       "display_name": "Text Block",
       "description": "A block of text.",
       "created_at": "2024-12-18T15:14:59.135Z",
-      "updated_at": "2024-12-18T20:04:12.299Z",
+      "updated_at": "2024-12-22T10:31:16.970Z",
       "id": 6708053,
       "schema": {
         "text": {
@@ -178,7 +258,8 @@
             "h2",
             "h3",
             "quote",
-            "list"
+            "list",
+            "link"
           ],
           "id": "wv0GWhBjQPC4hFIL641CQw"
         }
@@ -204,7 +285,7 @@
       "display_name": "Homepage",
       "description": "Template for the homepage.",
       "created_at": "2024-12-18T15:54:55.058Z",
-      "updated_at": "2024-12-18T18:10:29.636Z",
+      "updated_at": "2024-12-21T10:46:11.821Z",
       "id": 6708258,
       "schema": {
         "heroSecondary": {
@@ -212,16 +293,6 @@
           "pos": 1,
           "id": "Ff20bQszRgOUIUTWJlPjhA",
           "required": true
-        },
-        "linkText": {
-          "type": "text",
-          "pos": 2,
-          "id": "RtBg020TTX2BPB4FkHHPww"
-        },
-        "linkUrl": {
-          "type": "multilink",
-          "pos": 3,
-          "id": "zfMRtpwWTAyHLNQaGABozQ"
         },
         "heroMedia": {
           "type": "asset",

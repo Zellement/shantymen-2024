@@ -35,38 +35,15 @@ export default defineNuxtRouteMiddleware((): void => {
                 from: RouteLocationNormalized,
                 next: NavigationGuardNext
             ): void => {
-                // Check if paths match. The paths match when the user lands on the page from an external source or when the page is refreshed. We want the transition to run in these cases.
-                const pathsMatch: boolean = to.path === from.path
-                const isToJournalIndex: boolean =
-                    !pathsMatch && to.path === '/journal'
-                const isFromJournalIndex: boolean =
-                    !pathsMatch && from.path === '/journal'
-                const isToJournalCategory: boolean =
-                    !pathsMatch && to.path.includes('journal-categories')
-                const isFromJournalCategory: boolean =
-                    !pathsMatch && from.path.includes('journal-categories')
-
-                const skipTransition: boolean =
-                    (isFromJournalIndex && isToJournalCategory) ||
-                    (isToJournalCategory && isFromJournalCategory) ||
-                    (isToJournalIndex && isFromJournalCategory)
-
-                if (!skipTransition) {
-                    // Don't change pageIsLoading if the user is navigating between journal categories.
-                    // This is so the page transition panels don't appear.
-                    uiStore.pageIsLoading = true
-                }
+                uiStore.pageIsLoading = true
                 uiStore.pageHasLoaded = false
-
-                // Change timer based on if the transition is being skipped
-                const timerToMatchTransition = skipTransition ? timer1 : timer2
 
                 waitForDataLoaded().then(() => {
                     setTimeout(() => {
                         // Scroll to top of page
                         window.scrollTo(0, 0)
                         next()
-                    }, timerToMatchTransition) // Delay to match total page transition time (0.7s)
+                    }, timer2) // Delay to match total page transition time (0.7s)
                 })
             }
         )

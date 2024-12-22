@@ -1,27 +1,26 @@
 <template>
-    <nuxt-link to="/gigs" class="group transition-colors">
+    <div class="">
         <h3 class="">
             Next Gig: <span :class="h3spanClasses">{{ nextGig?.name }}</span>
         </h3>
         <p v-if="nextGig?.content.date" :class="dateClasses">
             {{ fullDateConverter(new Date(nextGig.content.date)) }}
         </p>
-        <p v-if="!isGigPage" :class="fakeLinkClasses">
-            See gig list
-            <Icon
-                name="ic:baseline-chevron-right"
-                :class="fakeLinkIconClasses"
-            />
-        </p>
-    </nuxt-link>
+        <single-link
+            v-if="!isGigPage"
+            to="gigs"
+            class="btn"
+            :class="linkClasses"
+            text="See gig list"
+        />
+    </div>
 </template>
 
 <script lang="ts" setup>
 interface Props {
     h3spanClasses?: string
     dateClasses?: string
-    fakeLinkClasses?: string
-    fakeLinkIconClasses?: string
+    linkClasses?: string
 }
 
 const route = useRoute()

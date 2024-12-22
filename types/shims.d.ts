@@ -68,11 +68,14 @@ declare global {
 
     type DataGlobalOptionsStoryblok = StoryblokTypes.DataGlobalOptionsStoryblok
     type DataGigStoryblok = StoryblokTypes.DataGigStoryblok
+    type DataAlbumStoryblok = StoryblokTypes.DataAlbumStoryblok
 
     type SectionTextBlockStoryblok = StoryblokTypes.SectionTextBlockStoryblok
     type SectionMediaGalleryStoryblok =
         StoryblokTypes.SectionMediaGalleryStoryblok
     type SectionAllGigsStoryblok = StoryblokTypes.SectionAllGigsStoryblok
+
+    type SectionAllDiscography = StoryblokTypes.SectionAllDiscography
 
     type TemplatePageStoryblok = StoryblokTypes.TemplatePageStoryblok
     type TemplateLocationStoryblok = StoryblokTypes.TemplateLocationStoryblok
