@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware((): void => {
     const uiStore = useUiStore()
     const timer1: number = 200
     const timer2: number = 300
-    const timer3: number = 92300
+    const timer3: number = 900
     const timer4: number = 800
 
     const storyblokStore = useStoryblokStore()
