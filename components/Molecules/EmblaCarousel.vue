@@ -31,21 +31,30 @@
 
         <!-- Thumbnails -->
         <div v-if="displayThumbs">
-            <div :class="thumbsWrapperClasses">
-                <div class="embla-thumbs relative z-10 col-span-full">
-                    <div ref="emblaRefThumbs" class="embla-thumbs__viewport">
-                        <div class="embla-thumbs__container">
-                            <div
-                                v-for="(slide, i) in media"
-                                :key="`thumb-${slide.id}`"
-                                class="embla-thumbs__slide cursor-pointer"
-                                @click="scrollTo(Number(i))"
+            <div class="embla-thumbs relative z-10 col-span-full mt-4">
+                <div ref="emblaRefThumbs" class="w-full overflow-x-auto">
+                    <div class="flex w-full gap-1">
+                        <div
+                            v-for="(slide, i) in media"
+                            :key="`thumb-${slide.id}`"
+                            class="embla-thumbs__slide cursor-pointer"
+                            @click.prevent="scrollTo(i)"
+                        >
+                            <button
+                                type="button"
+                                class="aspect-square size-20"
+                                :aria-label="`Go to slide #${i + 1}`"
                             >
-                                <div
-                                    class="size-10 bg-red-500"
-                                    :class="isThumbActiveClass(Number(i))"
+                                <single-picture
+                                    class="h-full w-full object-cover"
+                                    sizes="150px"
+                                    :class="isThumbActiveClass(i)"
+                                    :img-data="{
+                                        url: slide?.filename ?? '',
+                                        alt: slide?.alt ?? ''
+                                    }"
                                 />
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -85,7 +94,6 @@ interface Props {
     showDots?: boolean
     // Strings
     wrapperClasses?: string
-    thumbsWrapperClasses?: string
     // Embla & Storyblok specific
     options?: EmblaOptionsType
     media?: MultiassetStoryblok | AtomHeroSlideStoryblok[] | null
@@ -98,7 +106,6 @@ const props = withDefaults(defineProps<Props>(), {
     showDots: false,
     // Strings
     wrapperClasses: '',
-    thumbsWrapperClasses: 'grid-layout mt-6 flex-shrink-0 pl-4 xl:pl-0',
     // Embla & Storyblok specific
     options: undefined,
     media: null
