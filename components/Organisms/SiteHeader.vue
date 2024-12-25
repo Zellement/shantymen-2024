@@ -9,7 +9,7 @@
                 class="relative col-span-4 col-start-1 flex w-full items-center justify-between lg:col-span-2"
             >
                 <site-brand
-                    class="relative z-40 mr-auto h-16 lg:h-24 xl:h-28 xl:pt-4 2xl:h-40"
+                    class="relative z-40 mr-auto block size-16 self-start lg:size-24 xl:mt-4 2xl:size-32"
                 />
             </div>
             <div
