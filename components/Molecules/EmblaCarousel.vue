@@ -46,7 +46,7 @@
                                 :aria-label="`Go to slide #${i + 1}`"
                             >
                                 <single-picture
-                                    class="h-full w-full object-cover"
+                                    class="h-full w-full object-cover transition-all"
                                     sizes="150px"
                                     :class="isThumbActiveClass(i)"
                                     :img-data="{
