@@ -6,7 +6,7 @@
             <site-hero />
             <div class="relative grid grid-cols-12">
                 <div
-                    class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[25vh]"
+                    class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[35vh]"
                 >
                     <div
                         class="sticky top-0 flex flex-col p-8 text-sm text-blue-400 md:grid md:grid-cols-2 xl:flex xl:flex-col xl:text-right"
@@ -38,7 +38,7 @@
                 </div>
 
                 <main
-                    class="col-span-full bg-white p-8 md:-mt-12 md:pt-16 lg:p-14 xl:col-span-8 xl:col-start-5 xl:mt-0 xl:translate-y-[30vh] xl:pr-0"
+                    class="col-span-full bg-white p-8 md:-mt-12 md:pt-16 lg:p-14 xl:col-span-8 xl:col-start-5 xl:mt-0 xl:translate-y-[50vh] xl:pr-0"
                 >
                     <slot />
                 </main>

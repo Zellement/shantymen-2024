@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-12 xl:fixed xl:inset-0">
         <div
-            class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-[60vh]"
+            class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-[80vh]"
         >
             <single-picture
                 :img-data="{
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div
-        class="container container-px relative z-10 -mb-6 w-full xl:translate-y-25vh"
+        class="container container-px relative z-10 -mb-6 w-full xl:translate-y-[40vh]"
     >
         <div
             class="mx-auto flex max-w-screen-sm-md -translate-y-10 flex-col items-start gap-2 bg-blue-800 p-4 text-white xl:mx-0 xl:bg-transparent xl:p-0 xl:text-white"
