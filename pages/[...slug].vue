@@ -1,9 +1,10 @@
 <template>
     <div class="">
         <block-loop
-            :key="`${id}__${currentStory?.uid}`"
+            :key="`${id}__${currentStory?.id}`"
             :blocks="currentStory?.content.body"
         />
+
         <div v-if="isGuestbookPage" class="xl:pr-16">
             <DisqusComments identifier="5b78e557-bc58-575b-92be-8d935f27253e" />
         </div>
