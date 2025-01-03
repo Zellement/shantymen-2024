@@ -6,7 +6,7 @@
             <site-hero />
             <div class="relative grid grid-cols-12">
                 <div
-                    class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[35vh]"
+                    class="sticky top-0 order-last col-span-full flex flex-col text-white xl:order-first xl:col-span-4 xl:col-start-1 xl:pt-[37vh]"
                 >
                     <div
                         class="sticky top-0 flex flex-col p-8 text-sm text-blue-400 md:grid md:grid-cols-2 xl:flex xl:flex-col xl:text-right"
