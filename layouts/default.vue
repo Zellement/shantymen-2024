@@ -48,5 +48,9 @@
 </template>
 
 <script setup lang="ts">
-const thisYear = new Date().getFullYear()
+const thisYear = ref<number | null>(null)
+
+onMounted(() => {
+    thisYear.value = new Date().getFullYear()
+})
 </script>
