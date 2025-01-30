@@ -174,8 +174,12 @@ export default defineNuxtConfig({
                 // }
             ],
             script: [
+                // <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="MWxdC_lTYphdZO" async></script>
                 ...(process.env.NODE_ENV === 'production'
                     ? [
+                          //   {
+                          //       src: 'https://web.cmp.usercentrics.eu/modules/autoblocker.js'
+                          //   },
                           {
                               id: 'usercentrics-cmp',
                               src: 'https://web.cmp.usercentrics.eu/ui/loader.js',
