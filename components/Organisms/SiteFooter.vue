@@ -14,7 +14,9 @@
 <script lang="ts" setup>
 // const storyblokStore = useStoryblokStore()
 
-const date: ComputedRef<number> = computed(() => {
-    return new Date().getFullYear()
+const date = ref<number | null>(null)
+
+onMounted(() => {
+    date.value = new Date().getFullYear()
 })
 </script>
