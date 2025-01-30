@@ -96,7 +96,6 @@ interface State {
 const route = useRoute()
 const uiStore = useUiStore()
 const attrs = useAttrs()
-const viewport = useViewport()
 
 const props = withDefaults(defineProps<Props>(), {
     parallax: false,
@@ -165,6 +164,7 @@ const definedAspectRatios: Record<string, string> = {
 }
 
 const id = useId()
+const viewport = useViewport()
 
 const imageAspectRatio: ComputedRef<{
     width: number | undefined
@@ -192,7 +192,7 @@ const imageHeight: ComputedRef<number | string | undefined> = computed(() => {
 })
 
 const pictureKey: ComputedRef<string> = computed(() => {
-    return `${route.fullPath}-${props.imgData.url}-${id}`
+    return `${route.fullPath}-${props.imgData.url}-${id}-${viewport.breakpoint}`
 })
 
 const animationsDisabled: ComputedRef<boolean> = computed(() => {
