@@ -45,7 +45,14 @@
                                 class="aspect-square size-20"
                                 :aria-label="`Go to slide #${i + 1}`"
                             >
-                                <single-picture
+                                <nuxt-picture
+                                    class="h-full w-full object-cover transition-all"
+                                    sizes="150px"
+                                    :class="isThumbActiveClass(i)"
+                                    :src="slide?.filename"
+                                    :alt="slide?.alt"
+                                />
+                                <!-- <single-picture
                                     class="h-full w-full object-cover transition-all"
                                     sizes="150px"
                                     :class="isThumbActiveClass(i)"
@@ -53,7 +60,7 @@
                                         url: slide?.filename ?? '',
                                         alt: slide?.alt ?? ''
                                     }"
-                                />
+                                /> -->
                             </button>
                         </div>
                     </div>

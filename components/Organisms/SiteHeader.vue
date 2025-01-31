@@ -96,6 +96,7 @@ const state: State = reactive({
 const headerClasses: ComputedRef<string> = computed(() => {
     return state.showHeader ? 'translate-y-0' : '-translate-y-full'
 })
+
 const headerBgClasses: ComputedRef<string> = computed(() => {
     return uiStore.showMobileNav ? 'bg-blue text-white' : ' text-white'
 })

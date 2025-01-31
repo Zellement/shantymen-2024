@@ -72,9 +72,9 @@ watch(
     { immediate: true }
 )
 
-onMounted(async () => {
-    await storyblokStore.fetchRequired()
+storyblokStore.fetchRequired()
 
+onMounted(() => {
     if ($preview) {
         const script = document.createElement('script')
         script.src = 'https://app.storyblok.com/f/storyblok-v2-latest.js'
