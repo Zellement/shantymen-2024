@@ -3,8 +3,8 @@
         <h3 class="">
             Next Gig: <span :class="h3spanClasses">{{ nextGig?.name }}</span>
         </h3>
-        <p v-if="nextGig?.content.date" :class="dateClasses">
-            {{ fullDateConverter(new Date(nextGig.content.date)) }}
+        <p v-if="gigDate" :class="dateClasses">
+            {{ gigDate }}
         </p>
         <single-link
             v-if="!isGigPage"
@@ -24,6 +24,11 @@ interface Props {
 }
 
 const route = useRoute()
+
+const gigDate: ComputedRef<string> = computed(() => {
+    if (nextGig.value?.content.date === undefined) return ''
+    return fullDateConverter(new Date(nextGig.value?.content.date))
+})
 
 const isGigPage: ComputedRef<boolean> = computed(() => {
     return route.path === '/gigs'
