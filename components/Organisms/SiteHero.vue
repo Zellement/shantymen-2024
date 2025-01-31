@@ -3,20 +3,14 @@
         <div
             class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-[80vh]"
         >
-            <nuxt-picture
-                class="xl:h-[50vh aspect-square lg:aspect-landscape xl:aspect-auto xl:w-full xl:object-cover"
-                :src="currentStory.content.heroMedia.filename"
-                :alt="currentStory.content.heroMedia.alt"
-                sizes="500px lg:1000px xl:1600px"
-            />
-            <!-- <single-picture
+            <single-picture
                 :img-data="{
                     url: currentStory.content.heroMedia.filename,
                     alt: currentStory.content.heroMedia.alt
                 }"
                 class="xl:h-[50vh aspect-square lg:aspect-landscape xl:aspect-auto xl:w-full xl:object-cover"
                 sizes="500px lg:1000px xl:1600px"
-            /> -->
+            />
         </div>
     </div>
     <div

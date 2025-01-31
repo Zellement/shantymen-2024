@@ -1,6 +1,6 @@
 <template>
     <div class="page flex min-h-screen flex-col">
-        <!-- <div class="grid grid-cols-12 xl:fixed xl:inset-0">
+        <div class="grid grid-cols-12 xl:fixed xl:inset-0">
             <div
                 class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-full"
             >
@@ -36,20 +36,20 @@
                     link-classes="text-[0.7em] self-start  hover:text-yellow"
                 />
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-// const storyblokStore = useStoryblokStore()
+const storyblokStore = useStoryblokStore()
 
-// const currentStory = computed(() => {
-//     return storyblokStore.currentStory
-// })
+const currentStory = computed(() => {
+    return storyblokStore.currentStory
+})
 
-// const heroSecondary: ComputedRef<string | null> = computed(() => {
-//     return currentStory.value.content.heroSecondary
-// })
+const heroSecondary: ComputedRef<string | null> = computed(() => {
+    return currentStory.value.content.heroSecondary
+})
 
 definePageMeta({
     title: 'Supporters of the RNLI and other charities.',

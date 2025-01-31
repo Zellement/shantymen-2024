@@ -13,20 +13,14 @@
                     :key="slide._uid"
                     :class="['embla__slide relative', 'w-full', slideClasses]"
                 >
-                    <nuxt-picture
-                        class="h-full w-full object-cover"
-                        :src="slide.media.filename"
-                        :alt="slide.media.alt"
-                        sizes="336px md:700px xl:1200px 2xl:1600px max:1800px"
-                    />
-                    <!-- <single-picture
+                    <single-picture
                         class="h-full w-full object-cover"
                         :img-data="{
                             url: slide.media.filename ?? '',
                             alt: slide.media.alt ?? ''
                         }"
                         sizes="336px md:700px xl:1200px 2xl:1600px max:1800px"
-                    /> -->
+                    />
 
                     <component
                         :is="slide.link ? NuxtLink : 'h2'"
