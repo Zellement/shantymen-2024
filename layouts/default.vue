@@ -1,6 +1,6 @@
 <template>
     <div class="layout min-h-screen">
-        <site-seo />
+        <site-header />
         <div class="page relative flex min-h-screen flex-col">
             <site-hero />
             <div class="relative grid grid-cols-12">
