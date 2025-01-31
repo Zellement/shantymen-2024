@@ -1,6 +1,7 @@
 <template>
     <div class="">
         <block-loop
+            v-if="hasBody"
             :key="`${id}__${currentStory?.id}`"
             :blocks="currentStory?.content.body"
         />
@@ -25,6 +26,10 @@ const route = useRoute()
 
 const currentStory = computed(() => {
     return storyblokStore.currentStory
+})
+
+const hasBody: ComputedRef<boolean> = computed(() => {
+    return !!currentStory.value.content.body
 })
 
 const isGuestbookPage: ComputedRef<boolean> = computed(() => {
