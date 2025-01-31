@@ -1,7 +1,6 @@
 <template>
     <div class="layout min-h-screen">
         <site-seo />
-        <site-header />
         <main>
             <slot />
         </main>

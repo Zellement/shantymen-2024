@@ -1,7 +1,6 @@
 <template>
     <div class="layout min-h-screen">
         <site-seo />
-        <site-header />
         <div class="page relative flex min-h-screen flex-col">
             <site-hero />
             <div class="relative grid grid-cols-12">
@@ -17,9 +16,7 @@
                             date-classes="text-[0.8em]"
                             link-classes="text-[0.7em] self-start xl:self-end hover:text-yellow"
                         />
-                        <!-- <client-only>
-                            <spotify-player />
-                        </client-only> -->
+                        <spotify-player />
                         <div class="flex flex-col items-end pt-8 xl:pt-40">
                             <p>
                                 The Sheringham Shantymen &copy;
