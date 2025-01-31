@@ -1,6 +1,7 @@
 <template>
-    <nuxt-layout> remove page </nuxt-layout>
-    <page-transition v-if="!$preview" :class="pageTransitionClasses" />
+    <nuxt-layout>
+        <nuxt-page />
+    </nuxt-layout>
 </template>
 
 <script setup lang="ts">
@@ -13,18 +14,8 @@ const { $preview } = useNuxtApp()
 // Computed
 -------------------------- */
 
-const animationsDisabled: ComputedRef<boolean> = computed(() => {
-    return uiStore.animationsDisabled
-})
-
 const isAnyModalActive: ComputedRef<boolean> = computed(() => {
     return uiStore.showMobileNav
-})
-
-const pageTransitionClasses: ComputedRef<string> = computed(() => {
-    return animationsDisabled.value
-        ? 'opacity-0 pointer-events-none'
-        : 'opacity-100'
 })
 
 const pageName: ComputedRef<string> = computed(() => {
