@@ -5,6 +5,7 @@
                 class="relative col-span-full xl:col-span-8 xl:col-start-5 xl:h-full"
             >
                 <single-picture
+                    v-if="currentStory.content.heroMedia?.filename"
                     :img-data="{
                         url: currentStory.content.heroMedia.filename,
                         alt: currentStory.content.heroMedia.alt
@@ -23,10 +24,10 @@
                     The Sheringham Shantymen
                 </h1>
                 <h2
-                    v-if="currentStory.content.heroSecondary"
+                    v-if="heroSecondary"
                     class="text-xl text-yellow-400 xl:bg-blue-800 xl:px-3 xl:py-2"
                 >
-                    {{ currentStory.content.heroSecondary }}
+                    {{ heroSecondary }}
                 </h2>
                 <next-gig
                     class="my-4 mt-4 flex flex-col gap-4 border-t border-blue-500 pt-4 text-md leading-none text-blue-300 xl:bg-blue-800 xl:px-3 xl:py-2"
@@ -44,6 +45,14 @@ const storyblokStore = useStoryblokStore()
 
 const currentStory = computed(() => {
     return storyblokStore.currentStory
+})
+
+const heroSecondary: ComputedRef<string | null> = computed(() => {
+    return currentStory.value.content.heroSecondary
+})
+
+const heroSecondary: ComputedRef<string | null> = computed(() => {
+    return currentStory.value.content.heroSecondary
 })
 
 definePageMeta({
