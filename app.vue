@@ -1,4 +1,7 @@
 <template>
+    <nuxt-layout>
+        <nuxt-page />
+    </nuxt-layout>
     <page-transition v-if="!$preview" :class="pageTransitionClasses" />
 </template>
 
