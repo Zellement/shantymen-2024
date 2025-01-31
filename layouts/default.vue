@@ -11,12 +11,12 @@
                     <div
                         class="sticky top-0 flex flex-col p-8 text-sm text-blue-400 md:grid md:grid-cols-2 xl:flex xl:flex-col xl:text-right"
                     >
-                        <next-gig
+                        <!-- <next-gig
                             class="mb-8 flex flex-col gap-1 text-md text-blue-300 md:col-span-full"
                             span-classes="text-white"
                             date-classes="text-[0.8em]"
                             link-classes="text-[0.7em] self-start xl:self-end hover:text-yellow"
-                        />
+                        /> -->
                         <spotify-player />
                         <div class="flex flex-col items-end pt-8 xl:pt-40">
                             <p>
