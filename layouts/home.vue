@@ -1,7 +1,5 @@
 <template>
-    <div class="layout min-h-screen">
-        <site-header />
-    </div>
+    <div class="layout min-h-screen">this is a page</div>
 </template>
 
 <script setup lang="ts"></script>
