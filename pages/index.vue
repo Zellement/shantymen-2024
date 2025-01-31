@@ -51,10 +51,6 @@ const heroSecondary: ComputedRef<string | null> = computed(() => {
     return currentStory.value.content.heroSecondary
 })
 
-const heroSecondary: ComputedRef<string | null> = computed(() => {
-    return currentStory.value.content.heroSecondary
-})
-
 definePageMeta({
     title: 'Supporters of the RNLI and other charities.',
     layout: 'home'
