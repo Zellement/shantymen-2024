@@ -29,14 +29,21 @@
                     >
                         {{ slide.title }}
                     </div>
-                    <single-picture
+                    <nuxt-picture
+                        v-if="slide.filename"
+                        class="aspect-square md:aspect-landscape"
+                        :src="slide.filename"
+                        :alt="slide.alt ?? ''"
+                        sizes="336px lg:800px"
+                    />
+                    <!-- <single-picture
                         class="aspect-square md:aspect-landscape"
                         :img-data="{
                             url: slide.filename ?? '',
                             alt: slide.alt ?? ''
                         }"
                         sizes="336px lg:800px"
-                    />
+                    /> -->
                 </div>
             </template>
         </embla-carousel>
