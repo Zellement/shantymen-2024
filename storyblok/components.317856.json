@@ -5,7 +5,7 @@
       "display_name": "Album",
       "description": "A single album.",
       "created_at": "2024-12-22T10:42:43.912Z",
-      "updated_at": "2024-12-22T10:46:15.842Z",
+      "updated_at": "2024-12-22T11:26:49.808Z",
       "id": 6719199,
       "schema": {
         "year": {
@@ -30,6 +30,13 @@
           ],
           "id": "lEiaRRVjRSuRe_j3uJk6ng",
           "required": true
+        },
+        "spotifySrc": {
+          "type": "text",
+          "pos": 3,
+          "description": "This will allow the user to change the Spotify player to this album. You may need to speak to a developer or similar to get the src, but it will look like this: https://open.spotify.com/embed/album/1XWcG8TKAfpFBjgrnxWKvQ?utm_source=generator",
+          "default_value": "",
+          "id": "vaILn62TSBy7K9_XnijRrA"
         }
       },
       "image": null,
@@ -46,6 +53,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": ""
     },
     {
@@ -116,6 +124,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": ""
     },
     {
@@ -153,6 +162,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": ""
     },
     {
@@ -177,6 +187,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": "Body"
     },
     {
@@ -201,6 +212,61 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
+      "component_group_name": "Body"
+    },
+    {
+      "name": "sectionExternalVideo",
+      "display_name": "External Video",
+      "description": "A single external video, hosted by Vimeo or YouTube.",
+      "created_at": "2025-08-08T19:25:55.533Z",
+      "updated_at": "2025-08-08T19:29:23.396Z",
+      "id": 77789411470826,
+      "schema": {
+        "type": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "4166ece6-dd48-410a-96e4-56c4324a6b49",
+              "name": "Vimeo",
+              "value": "vimeo"
+            },
+            {
+              "_uid": "fd884437-79b3-4314-8b88-25ce85ece801",
+              "value": "youtube",
+              "name": "YouTube"
+            }
+          ],
+          "id": "9BITIiLDQuOAutSTpynTJA",
+          "required": true,
+          "default_value": "vimeo"
+        },
+        "videoId": {
+          "type": "text",
+          "pos": 1,
+          "display_name": "Video ID",
+          "required": true,
+          "description": "This will be a short string of words/numbers to identify the video - it can be found in the URL bar. For Vimeo, e.g. 951176902 or YouTube e.g. NRtnxVDf538",
+          "id": "xLcR0d-vTyKRNx2kTS-3kQ"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "External Video",
+      "component_group_uuid": "8a10468e-4e11-483c-be67-d88224194787",
+      "color": "#f5a928",
+      "icon": "block-image",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": "Body"
     },
     {
@@ -208,7 +274,7 @@
       "display_name": "Media Gallery",
       "description": "A swipable media gallery.",
       "created_at": "2024-12-18T15:16:15.750Z",
-      "updated_at": "2024-12-18T15:52:28.744Z",
+      "updated_at": "2025-08-08T19:25:27.602Z",
       "id": 6708114,
       "schema": {
         "title": {
@@ -224,6 +290,18 @@
           ],
           "id": "v_ufrPorSIidbaO9e4nAOQ",
           "required": true
+        },
+        "showThumbnails": {
+          "type": "boolean",
+          "pos": 2,
+          "description": "Enable this to show small thumbnails for your images galleries. Will only show if this is enabled AND there is more than one image.",
+          "id": "Oudr9HkcROulTS0uJgRqWg"
+        },
+        "showCaptions": {
+          "type": "boolean",
+          "pos": 3,
+          "description": "Enable this to show the title/caption of each image.",
+          "id": "XTueABvpT6q6AcNVvt9_CA"
         }
       },
       "image": null,
@@ -240,6 +318,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": "Body"
     },
     {
@@ -278,6 +357,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": "Body"
     },
     {
@@ -318,6 +398,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": ""
     },
     {
@@ -369,6 +450,7 @@
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
+      "metadata": {},
       "component_group_name": ""
     }
   ],

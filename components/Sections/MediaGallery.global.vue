@@ -57,6 +57,6 @@ const id = useId()
 const carouselRef = ref<{ emblaApi: EmblaCarouselType | null } | null>(null)
 
 const showThumbs: ComputedRef<boolean> = computed(() => {
-    return props.content.media.length > 2 && props.content.showThumbnails
+    return props.content.media.length > 2 && !!props.content.showThumbnails
 })
 </script>

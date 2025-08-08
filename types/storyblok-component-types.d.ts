@@ -39,6 +39,7 @@ export interface DataAlbumStoryblok {
   year: string;
   cover: AssetStoryblok;
   text: RichtextStoryblok;
+  spotifySrc?: string;
   component: "dataAlbum";
   _uid: string;
   [k: string]: any;
@@ -150,6 +151,14 @@ export interface SectionAllGigsStoryblok {
   [k: string]: any;
 }
 
+export interface SectionExternalVideoStoryblok {
+  type: "" | "vimeo" | "youtube";
+  videoId: string;
+  component: "sectionExternalVideo";
+  _uid: string;
+  [k: string]: any;
+}
+
 export type MultiassetStoryblok = {
   alt: string | null;
   copyright?: string | null;
@@ -178,6 +187,8 @@ export type MultiassetStoryblok = {
 export interface SectionMediaGalleryStoryblok {
   title?: string;
   media: MultiassetStoryblok;
+  showThumbnails?: boolean;
+  showCaptions?: boolean;
   component: "sectionMediaGallery";
   _uid: string;
   [k: string]: any;
@@ -205,6 +216,7 @@ export interface TemplatePageStoryblok {
   body?: (
     | SectionAllDiscographyStoryblok
     | SectionAllGigsStoryblok
+    | SectionExternalVideoStoryblok
     | SectionMediaGalleryStoryblok
     | SectionTextBlockStoryblok
   )[];
